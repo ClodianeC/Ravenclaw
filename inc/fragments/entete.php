@@ -4,7 +4,9 @@ $nomDeListe = "Liste quelconque";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<head>
+    <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
+</head>
 <div class="header">
     <p class="bienvenue">Bienvenue <?php echo $nomUtilisateur ?></p>
     <a href=""><div class="icon" id="deconnexion"></div>Déconnexion</a>

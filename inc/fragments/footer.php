@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
+</head>
 <p class="inspiration">Vous manquez d'inspiration? Voici des listes poppulaires auprès de nos utilisateurs: </p>
 <ul class="liste-inspi">
     <li class="inspi">Liste d'épicerie</li>
