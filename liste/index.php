@@ -18,7 +18,7 @@ $nomDeListe = "Liste quelconque";
     <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
 </head>
 <main>
-    <?php include($niveau."inc/fragments/entete.html"); ?>
+    <?php include($niveau."inc/fragments/entete.php"); ?>
     <a href="../index.php"><div class="icon" id="retourAccueil">Retour à l'accueil</div></a>
     <h1 class="h1"><?php echo $nomDeListe?></h1>
     <form action="creer_modifier/index.php" method="get">
@@ -42,6 +42,6 @@ $nomDeListe = "Liste quelconque";
     </ul>
 </main>
 <footer>
-    <?php include($niveau."inc/fragments/footer.html"); ?>
+    <?php include($niveau."inc/fragments/footer.php"); ?>
 </footer>
 </html>
