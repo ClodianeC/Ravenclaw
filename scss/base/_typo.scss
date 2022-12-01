@@ -18,24 +18,27 @@
  * Écran large : 801px et +
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
-
-h1,
-.h1{
-  font-family: "RubikDirt", sans-serif ;
+@font-face {
+  font-family: 'Caviar Dreams';
+  src: url(../../fonts/CaviarDreams/CaviarDreams.ttf) format("truetype");
 }
+body{
+  font-family: "Arial", sans-serif ;
+}
+h1,
+.h1,
 h2,
 .h2,
 h3,
 .h3,
 h4,
-.h4 {
-  font-family: "Alata", sans-serif ;
+.h4,
+.lienAccueil,
+.bouton,
+.lienBouton{
+  font-family: "Caviar Dreams", sans-serif ;
 }
-body{
-  font-family: "Arial", sans-serif ;
-}
+
 
 
 /* Base décimale */

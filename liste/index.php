@@ -3,6 +3,10 @@ $niveau = "../";
 
 include($niveau."inc/config.inc.php");
 
+$arr_mois = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+
+
+
 $nomDeListe = "Liste quelconque";
 ?>
 
@@ -20,13 +24,13 @@ $nomDeListe = "Liste quelconque";
 <main>
     <?php include($niveau."inc/fragments/entete.php"); ?>
     <a href="../index.php"><div class="icon" id="retourAccueil">Retour à l'accueil</div></a>
-    <h1 class="h1"><?php echo $nomDeListe?></h1>
+    <h1 class="h1 h1Liste"><?php echo $nomDeListe?></h1>
     <form action="creer_modifier/index.php" method="get">
-        <button type="submit" name="add" id="add" value="add"></div>Ajouter un item</button>
+        <button type="submit" name="add" id="add" value="add" class="bouton"></div>Ajouter un item</button>
     </form>
-    <ul>
-        <li>
-            <h2 class="h2">Nom de l'item</h2>
+    <ul class="liste">
+        <li class="itemListe">
+            <h2 class="h2 h2Item">Nom de l'item</h2>
             <p>Date due: 12 nov 2022</p>
             <p>Charactéristique 01: Rond</p>
             <p>Charactéristique 02: Bleu</p>
