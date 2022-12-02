@@ -1,0 +1,21 @@
+
+
+* {
+    background: #000;
+}
+
+.todo_list {
+    display: flex;
+    padding-left: 20px;
+    border: solid white 1px;
+}
+
+.todo {
+    color: white;
+}
+
+.list {
+    padding-top: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
