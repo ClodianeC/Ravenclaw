@@ -569,9 +569,34 @@ body {
   color: #FFFFFF;
 }
 
-.h2Item {
+.blanc {
+  background-color: #FFFFFF;
   color: #000000;
+}
+
+.gtpale {
   background-color: #C9C9C9;
+  color: #000000;
+}
+
+.gpale {
+  background-color: #ABABAB;
+  color: #000000;
+}
+
+.gmoyen {
+  background-color: #777777;
+  color: #000000;
+}
+
+.gfonce {
+  background-color: #3B3B3B;
+  color: #FFFFFF;
+}
+
+.gtfonce {
+  background-color: #242424;
+  color: #FFFFFF;
 }
 
 .bouton,

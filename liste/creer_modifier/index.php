@@ -28,12 +28,16 @@ if(isset($_GET["id_item"])){
 else{
     $id_item = 0;
 }
-$strRequeteItem = "SELECT nom_item, hexadecimale FROM t_item INNER JOIN t_couleur ON t_item.id_couleur=t_couleur.id_couleur WHERE id_item=".$id_item;
+$strRequeteItem = "SELECT nom_item, hexadecimale, DAYOFMONTH(echeance) AS jour, MONTH(echeance) AS mois, YEAR(echeance) AS annee, est_complete FROM t_item INNER JOIN t_couleur ON t_item.id_couleur=t_couleur.id_couleur WHERE id_item=".$id_item;
 $pdosResultatItem = $pdoConnexion->prepare($strRequeteItem);
 $pdosResultatItem->execute();
 $ligne=$pdosResultatItem->fetch();
 $arrItem["nom"]=$ligne["nom_item"];
 $arrItem["hex"]=$ligne["hexadecimale"];
+$arrItem["jour"]=$ligne["jour"];
+$arrItem["mois"]=$ligne["mois"];
+$arrItem["annee"]=$ligne["annee"];
+$arrItem["complete"]=$ligne["est_complete"];
 $pdosResultatItem->closeCursor();
 
 //Déterminer quelle est la couleur de l'item
@@ -71,6 +75,38 @@ switch (true){
         $strCodeOperation="Supprimer";
         break;
 }
+
+//faire le tableau des couleurs
+$strRequeteItem = "SELECT id_couleur, hexadecimale, nom_couleur_fr FROM t_couleur";
+$pdosResultatItem = $pdoConnexion->prepare($strRequeteItem);
+$pdosResultatItem->execute();
+for($intCptCouleur=0; $ligne=$pdosResultatItem->fetch(); $intCptCouleur++){
+    $arrCouleur[$intCptCouleur]["id"]=$ligne["id_couleur"];
+    $arrCouleur[$intCptCouleur]["hex"]=$ligne["hexadecimale"];
+    $arrCouleur[$intCptCouleur]["nom"]=$ligne["nom_couleur_fr"];
+
+    switch ($arrCouleur[$intCptCouleur]["hex"]){
+        case "FFFFFF":
+            $arrCouleur[$intCptCouleur]["surnom"]="blanc";
+            break;
+        case "C9C9C9":
+            $arrCouleur[$intCptCouleur]["surnom"]="gtpale";
+            break;
+        case "ABABAB":
+            $arrCouleur[$intCptCouleur]["surnom"]="gpale";
+            break;
+        case "777777":
+            $arrCouleur[$intCptCouleur]["surnom"]="gmoyen";
+            break;
+        case "3B3B3B":
+            $arrCouleur[$intCptCouleur]["surnom"]="gfonce";
+            break;
+        case "242424":
+            $arrCouleur[$intCptCouleur]["surnom"]="gtfonce";
+            break;
+    }
+}
+$pdosResultatItem->closeCursor();
 ?>
 
 <!doctype html>
@@ -89,7 +125,7 @@ switch (true){
     <a href="../index.php?id_liste=<?php echo $id_liste ?>"><div class="icon" id="retourListe">Retour à la liste</div></a>
     <?php
     if($strCodeOperation=="Ajouter"){
-        echo "<h1 class='h1 h1Liste $strCouleurItem'>Nouvel item</h1>";
+        echo "<h1 class='h1 h1Liste blanc'>Nouvel item</h1>";
         echo "<p class='avertissement'>Les champs accompagnés d'un astérisque (*) sont obligatoires</p>";
     }
     elseif($strCodeOperation=="Modifier"){
@@ -106,35 +142,57 @@ switch (true){
     <form action="./index.php" method="get" class="formulaireItem">
     <?php
     if($strCodeOperation!="Supprimer"){
+        if($strCodeOperation=="Modifier"){
+            $nom_item = $arrItem["nom"];
+            $couleur_item = $strCouleurItem;
+            $jour_item = $arrItem["jour"];
+            $mois_item = $arrItem["mois"];
+            $annee_item = $arrItem["annee"];
+            $complete_item = $arrItem["complete"];
+        }
+        elseif($strCodeOperation=="Ajouter"){
+            $nom_item = "";
+            $couleur_item = "";
+            $jour_item = "";
+            $mois_item = "";
+            $annee_item = "";
+            $complete_item = "";
+        }
     ?>
-
-            <fieldset>
+            <fieldset class="fieldset_couleur">
                 <legend>Couleur de l'item</legend>
-                <label for="aleatoire" class="label">Aléatoire</label>
-                <input type="radio" name="couleur" id="aleatoire" value="aleatoire">
-                <label for="blanc" class="label">Blanc</label>
-                <input type="radio" name="couleur" id="blanc" value="blanc">
-                <label for="tPale" class="label">Gris très pâle</label>
-                <input type="radio" name="couleur" id="tPale" value="tPale">
-                <label for="pale" class="label">Gris pâle</label>
-                <input type="radio" name="couleur" id="pale" value="pale">
-                <label for="moyen" class="label">Gris moyen</label>
-                <input type="radio" name="couleur" id="moyen" value="moyen">
-                <label for="fonce" class="label">Gris foncé</label>
-                <input type="radio" name="couleur" id="fonce" value="fonce">
-                <label for="tFonce" class="label">Gris très foncé</label>
-                <input type="radio" name="couleur" id="tFonce" value="tFonce">
+                <ul class="listeCouleur">
+                    <li class="choix_couleur">
+                        <label for="aleatoire" class="label">Aléatoire</label>
+                        <input type="radio" name="couleur" id="aleatoire" value="aleatoire">
+                    </li>
+                    <?php
+                    for($intCptAffichageCouleur=0; $intCptAffichageCouleur<count($arrCouleur); $intCptAffichageCouleur++){
+                        $strCheckedCouleur = "";
+                        if($strCouleurItem==$arrCouleur[$intCptAffichageCouleur]["surnom"]){
+                            $strCheckedCouleur = "checked";
+                        }
+                        echo "<li class='choix_couleur'>";
+                        echo "<label for='".$arrCouleur[$intCptAffichageCouleur]["hex"]."' class=label>".$arrCouleur[$intCptAffichageCouleur]["nom"]."</label>";
+                        echo "<input type='radio' name='couleur' id='".$arrCouleur[$intCptAffichageCouleur]["surnom"]."' $strCheckedCouleur>";
+                    }
+                    ?>
+                </ul>
             </fieldset>
 
             <label for="nom" class="label">Nom de l'item</label>
-            <input type="text" name="nom" id="nom" value="">
+            <input type="text" name="nom" id="nom" value="<?php echo $nom_item ?>">
             <fieldset name="date">
                 <legend>Date due</legend>
                 <select id="jour" name="jour">
                     <option value="0" selected></option>
                     <?php
                     for($intCptJour = 1; $intCptJour<=31; $intCptJour++){
-                        echo "<option value='$intCptJour'>".$intCptJour."</option>";
+                        $strSelectedJour = "";
+                        if($jour_item==$intCptJour){
+                            $strSelectedJour = "selected";
+                        }
+                        echo "<option value='$intCptJour' $strSelectedJour>$intCptJour</option>";
                     }
                     ?>
                 </select>
@@ -142,7 +200,11 @@ switch (true){
                     <option value="0" selected></option>
                     <?php
                     for($intCptMois = 0; $intCptMois<count($arr_mois); $intCptMois++){
-                        echo "<option value='$intCptMois'>".$arr_mois[$intCptMois]."</option>";
+                        $strSelectedMois = "";
+                        if($mois_item-1==$intCptMois){
+                            $strSelectedMois = "selected";
+                        }
+                        echo "<option value='$intCptMois' $strSelectedMois>".$arr_mois[$intCptMois]."</option>";
                     }
                     ?>
                 </select>
@@ -153,7 +215,11 @@ switch (true){
                     $intAnneeMin = $intAnneeActu-15;
                     $intAnneeMax = $intAnneeActu+15;
                     for($intCptAnnee=$intAnneeMax; $intCptAnnee>=$intAnneeMin; $intCptAnnee--){
-                        echo "<option value='$intCptAnnee'>$intCptAnnee</option>";
+                        $strSelectedAnnee = "";
+                        if($annee_item==$intCptAnnee){
+                            $strSelectedAnnee = "selected";
+                        }
+                        echo "<option value='$intCptAnnee' $strSelectedAnnee>$intCptAnnee</option>";
                     }
                     ?>
                     <option value="01">2022</option>

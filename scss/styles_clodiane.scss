@@ -86,9 +86,29 @@ body{
   border: $blanc solid 3px;
   color: $blanc;
 }
-.h2Item{
+.blanc{
+  background-color: $blanc;
   color: $noir;
+}
+.gtpale{
   background-color: $gTPale;
+  color: $noir;
+}
+.gpale{
+  background-color: $gPale;
+  color: $noir;
+}
+.gmoyen{
+  background-color: $gMoyen;
+  color: $noir;
+}
+.gfonce{
+  background-color: $gFonce;
+  color: $blanc;
+}
+.gtfonce{
+  background-color: $gTFonce;
+  color: $blanc;
 }
 .bouton,
 .lienBouton{
