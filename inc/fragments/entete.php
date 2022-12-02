@@ -17,7 +17,7 @@ for($intCptListes=0; $rangee=$pdosResultatListes->fetch();$intCptListes++){
     $arrListes[$intCptListes]["id"]=$rangee["id_liste"];
     $arrListes[$intCptListes]["nom"]=$rangee["nom_liste"];
 }
-$pdosResultatUtilisateur->closeCursor();
+$pdosResultatListes->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $pdosResultatUtilisateur->closeCursor();
             for($intCptAffichageListes=0; $intCptAffichageListes<count($arrListes); $intCptAffichageListes++){
                 $idListe = $arrListes[$intCptAffichageListes]['id'];
                 $nomListe = $arrListes[$intCptAffichageListes]['nom'];
-                echo "<li class='lienListe'><a href=".$niveau."liste/index.php?id_liste=$idListe'>$nomListe</a></li>";
+                echo "<li class='lienListe'><a href='".$niveau."liste/index.php?id_liste=$idListe'>$nomListe</a></li>";
             }
         ?>
     </ul>
