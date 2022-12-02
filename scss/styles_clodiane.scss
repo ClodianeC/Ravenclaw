@@ -1,0 +1,114 @@
+/**
+* imports
+* Menu
+* Grille
+* Mise en page
+** Entête
+** Footer
+** Général
+** Item de liste
+** Formulaire
+*/
+
+/* Normalize
+   ========================================================================== */
+@import "base/_normalize";
+
+/* Charte typographique
+   ========================================================================== */
+@import "base/_typo";
+
+/* Utilitaires
+   ========================================================================== */
+@import "base/_variables";
+
+
+/* Mise en page
+   ========================================================================== */
+
+/** Entête
+    ========================================================================== */
+.bienvenue{
+  color: $blanc;
+}
+.icon_header{
+  font-size: 1.3rem;
+}
+.titre{
+  font-size: 12rem;
+}
+.slogan{
+  font-size: 2.8rem;
+}
+.header{
+  background-color: $noir;
+  border: $blanc solid 3px;
+}
+
+/** Footer
+    ========================================================================== */
+.inspiration,
+.inspi,
+.droits{
+  color: $blanc;
+}
+.footer{
+  background-color: $noir;
+  border: $blanc solid 3px;
+}
+.droits{
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/** Général
+    ========================================================================== */
+body{
+  background-color: $noir;
+}
+.h1Liste{
+  color: $noir;
+  background-color: $gTPale;
+  text-align: center;
+}
+.h2Liste,
+.avertissement{
+  color: $blanc;
+}
+
+/** Item de liste
+    ========================================================================== */
+.liste{
+  list-style: none;
+}
+.itemListe{
+  background-color: $noir;
+  border: $blanc solid 3px;
+  color: $blanc;
+}
+.h2Item{
+  color: $noir;
+  background-color: $gTPale;
+}
+.bouton,
+.lienBouton{
+  color: $blanc;
+  text-decoration: none;
+  background-color: $noir;
+  border: $blanc solid 3px;
+  width: 315px;
+  height: 70px;
+  font-size: 3rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 60px;
+}
+
+/** Formulaire
+    ========================================================================== */
+.formulaireItem{
+  color: $blanc;
+}
+.label{
+  display: block;
+}
