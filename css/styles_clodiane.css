@@ -559,8 +559,15 @@ body {
 
 /** Item de liste
     ========================================================================== */
-.liste {
+.liste,
+.listeCouleur {
   list-style: none;
+}
+
+.radioCouleur {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .itemListe {
@@ -569,9 +576,25 @@ body {
   color: #FFFFFF;
 }
 
+.cercleCouleur.aleatoire {
+  background-color: #000000;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
+}
+
 .blanc {
   background-color: #FFFFFF;
   color: #000000;
+}
+
+.cercleCouleur.blanc {
+  background-color: #FFFFFF;
+  width: 100px;
+  height: 100px;
+  border: #3B3B3B solid 3px;
+  border-radius: 50%;
 }
 
 .gtpale {
@@ -579,9 +602,25 @@ body {
   color: #000000;
 }
 
+.cercleCouleur.gtpale {
+  background-color: #C9C9C9;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
+}
+
 .gpale {
   background-color: #ABABAB;
   color: #000000;
+}
+
+.cercleCouleur.gpale {
+  background-color: #ABABAB;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
 }
 
 .gmoyen {
@@ -589,14 +628,38 @@ body {
   color: #000000;
 }
 
+.cercleCouleur.gmoyen {
+  background-color: #777777;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
+}
+
 .gfonce {
   background-color: #3B3B3B;
   color: #FFFFFF;
 }
 
+.cercleCouleur.gfonce {
+  background-color: #3B3B3B;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
+}
+
 .gtfonce {
   background-color: #242424;
   color: #FFFFFF;
+}
+
+.cercleCouleur.gtfonce {
+  background-color: #242424;
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
 }
 
 .bouton,
@@ -621,6 +684,17 @@ body {
 
 .label {
   display: block;
+}
+
+/** Bouton radio
+    ========================================================================== */
+[type=radio]:hover + label div,
+[type=radio]:focus + label div {
+  border-width: 8px;
+}
+
+[type=radio]:checked + label div {
+  border-width: 8px;
 }
 
 /*# sourceMappingURL=styles_clodiane.css.map */

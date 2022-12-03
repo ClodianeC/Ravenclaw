@@ -163,18 +163,18 @@ $pdosResultatItem->closeCursor();
                 <legend>Couleur de l'item</legend>
                 <ul class="listeCouleur">
                     <li class="choix_couleur">
-                        <label for="aleatoire" class="label">Aléatoire</label>
-                        <input type="radio" name="couleur" id="aleatoire" value="aleatoire">
+                        <input type="radio" name="couleur" id="aleatoire" value="aleatoire" class="radioCouleur screen-reader-only">
+                        <label for="aleatoire" class="label"><div class="cercleCouleur aleatoire"></div><span>Aléatoire</span></label>
                     </li>
                     <?php
                     for($intCptAffichageCouleur=0; $intCptAffichageCouleur<count($arrCouleur); $intCptAffichageCouleur++){
                         $strCheckedCouleur = "";
                         if($strCouleurItem==$arrCouleur[$intCptAffichageCouleur]["surnom"]){
-                            $strCheckedCouleur = "checked";
+                            $strCheckedCouleur = "checked=true";
                         }
                         echo "<li class='choix_couleur'>";
-                        echo "<label for='".$arrCouleur[$intCptAffichageCouleur]["hex"]."' class=label>".$arrCouleur[$intCptAffichageCouleur]["nom"]."</label>";
-                        echo "<input type='radio' name='couleur' id='".$arrCouleur[$intCptAffichageCouleur]["surnom"]."' $strCheckedCouleur>";
+                        echo "<input type='radio' name='id_couleur' id='".$arrCouleur[$intCptAffichageCouleur]["surnom"]."' class='radioCouleur screen-reader-only' value='".$arrCouleur[$intCptAffichageCouleur]["id"]."' $strCheckedCouleur>";
+                        echo "<label for='".$arrCouleur[$intCptAffichageCouleur]["surnom"]."' class=label><div class='cercleCouleur ".$arrCouleur[$intCptAffichageCouleur]["surnom"]."'></div><span>".$arrCouleur[$intCptAffichageCouleur]["nom"]."</span></label>";
                     }
                     ?>
                 </ul>
