@@ -553,7 +553,8 @@ body {
 }
 
 .h2Liste,
-.avertissement {
+.avertissement,
+.message {
   color: #FFFFFF;
 }
 
