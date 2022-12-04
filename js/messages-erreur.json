@@ -1,0 +1,13 @@
+{
+    "nom": {
+        "vide": "Le champ nom est requis.",
+        "motif": "Le champ nom comporte un ou plusieurs caractères interdits."
+    },
+    "couleur": "Vous devez sélectionner une couleur.",
+    "statut":  "Vous devez sélectionner un statut de complétion.",
+    "echeance": "Vous devez sélectionner une date d'échéance valide.",
+    "ajouter": "La fiche du participant a été ajouté!",
+    "modifier": "La fiche du participant a été modifié!",
+    "supprimer": "La fiche du participant a été supprimé!",
+    "echouer": "Une erreur est survenue!"
+}

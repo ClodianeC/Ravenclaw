@@ -3,6 +3,9 @@ $niveau = "../";
 
 include($niveau."inc/config.inc.php");
 
+$strFichierTexte=file_get_contents($niveau."js/messages-erreur.json");
+$jsonMessagesErreur=json_decode($strFichierTexte);
+
 $arr_mois = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
 $strCouleurListe="";
 
