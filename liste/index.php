@@ -13,6 +13,25 @@ if(isset($_GET["id_liste"])){
 else{
     $idListeActu = 0;
 }
+if(isset($_GET["delete"])){
+    $strCodeOperation = "supprimer";
+    $idDelete = $_GET["id_item"];
+    $strMessage = "L'item numéro $idDelete a été supprimé avec succès.";
+}
+else{
+    $strCodeOperation = "afficher";
+    $strMessage = "";
+}
+
+if($strCodeOperation=="supprimer"){
+    $strRequeteDelete = "DELETE FROM t_item WHERE id_item=".$idDelete;
+    $pdoConnexionDelete=new PDO($strDsn, $strUser, $strPassword);
+    $pdoConnexionDelete->exec("SET CHARACTER SET utf8");
+    $pdoConnexionDelete->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+    $pdosResultatDelete = $pdoConnexionDelete->prepare($strRequeteDelete);
+    $pdosResultatDelete->execute();
+    $pdoConnexionDelete=$pdoConnexionDelete->errorCode();
+}
 
 $strRequeteListe="SELECT id_liste, nom_liste, hexadecimale FROM t_liste INNER JOIN t_couleur ON t_liste.id_couleur=t_couleur.id_couleur WHERE id_liste=".$idListeActu;
 $pdosResultatListe = $pdoConnexion->prepare($strRequeteListe);
@@ -99,6 +118,7 @@ $pdosResultatItems->closeCursor();
     <?php include($niveau."inc/fragments/entete.php"); ?>
     <a href="../index.php"><div class="icon" id="retourAccueil">Retour à l'accueil</div></a>
     <h1 class="h1 h1Liste <?php echo $strCouleurListe ?>"><?php echo $arrListe["nom"]?></h1>
+    <p class="message"><?php echo $strMessage ?></p>
     <form action="creer_modifier/index.php" method="get">
         <?php echo "<input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>" ?>
         <button type="submit" name="add" id="add" value="add" class="bouton"></div>Ajouter un item</button>
@@ -108,8 +128,9 @@ $pdosResultatItems->closeCursor();
         for($intCptAffichageItems = 0; $intCptAffichageItems<count($arrItems); $intCptAffichageItems++){
             $id_mois = $arrItems[$intCptAffichageItems]["mois"]-1;
             $id_item = $arrItems[$intCptAffichageItems]["id"];
+            $strCouleur = $arrItems[$intCptAffichageItems]["couleur"];
             echo "<li class='itemListe'>";
-            echo "<h2 class='h2 h2Item'>".$arrItems[$intCptAffichageItems]["nom"]."</h2>";
+            echo "<h2 class='h2 h2Item $strCouleur'>".$arrItems[$intCptAffichageItems]["nom"]."</h2>";
             if($arrItems[$intCptAffichageItems]["echeance"]!=""){
                 echo "<p>Date due: ".$arrItems[$intCptAffichageItems]["jour"]." ".$arr_mois[$id_mois]." ".$arrItems[$intCptAffichageItems]["annee"]."</p>";
             }
@@ -126,7 +147,11 @@ $pdosResultatItems->closeCursor();
                   <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
                   <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
                   <button type='submit' name='edit' id='edit' value='edit'><div class='icon'></div>Éditer</button>
-                  <button type='submit' name='delete' id='delete' value='delete'><div class='icon'></div>Supprimer</button>
+                  </form>";
+            echo "<form action='index.php' method='get'>
+                     <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
+                     <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
+                     <button type='submit' name='delete' id='delete' value='delete'><div class='icon'></div>Supprimer</button>
                   </form>";
             echo "</li>";
         }

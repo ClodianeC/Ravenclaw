@@ -72,23 +72,99 @@ body{
   text-align: center;
 }
 .h2Liste,
-.avertissement{
+.avertissement,
+.message{
   color: $blanc;
 }
 
 /** Item de liste
     ========================================================================== */
-.liste{
+.liste,
+.listeCouleur{
   list-style: none;
+}
+.radioCouleur{
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
 }
 .itemListe{
   background-color: $noir;
   border: $blanc solid 3px;
   color: $blanc;
 }
-.h2Item{
+.cercleCouleur.aleatoire{
+  background-color: $noir;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
+}
+.blanc{
+  background-color: $blanc;
   color: $noir;
+}
+.cercleCouleur.blanc{
+  background-color: $blanc;
+  width: 100px;
+  height: 100px;
+  border: $gFonce solid 3px;
+  border-radius: 50%;
+}
+.gtpale{
   background-color: $gTPale;
+  color: $noir;
+}
+.cercleCouleur.gtpale{
+  background-color: $gTPale;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
+}
+.gpale{
+  background-color: $gPale;
+  color: $noir;
+}
+.cercleCouleur.gpale{
+  background-color: $gPale;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
+}
+.gmoyen{
+  background-color: $gMoyen;
+  color: $noir;
+}
+.cercleCouleur.gmoyen{
+  background-color: $gMoyen;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
+}
+.gfonce{
+  background-color: $gFonce;
+  color: $blanc;
+}
+.cercleCouleur.gfonce{
+  background-color: $gFonce;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
+}
+.gtfonce{
+  background-color: $gTFonce;
+  color: $blanc;
+}
+.cercleCouleur.gtfonce{
+  background-color: $gTFonce;
+  width: 100px;
+  height: 100px;
+  border: $blanc solid 3px;
+  border-radius: 50%;
 }
 .bouton,
 .lienBouton{
@@ -111,4 +187,13 @@ body{
 }
 .label{
   display: block;
+}
+/** Bouton radio
+    ========================================================================== */
+[type=radio]:hover+label div,
+[type=radio]:focus+label div{
+  border-width: 8px;
+}
+[type=radio]:checked+label div{
+  border-width: 8px;
 }
