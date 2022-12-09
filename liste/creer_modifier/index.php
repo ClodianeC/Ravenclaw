@@ -205,6 +205,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
     <?php include($niveau."inc/fragments/head.php"); ?>
     <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
 </head>
+<body>
 <main>
     <?php include($niveau."inc/fragments/entete.php"); ?>
     <a href="../index.php?id_liste=<?php echo $id_liste ?>"><div class="icon" id="retourListe">Retour à la liste</div></a>
@@ -292,7 +293,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                 echo "</select>";
                 ?>
                 <fieldset name="date">
-                    <legend>Date due</legend>
+                    <legend>Date d'échéance</legend>
                     <select id="jour" name="jour">
                         <option value="0" selected></option>
                         <?php
@@ -333,7 +334,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                         ?>
                         <option value="01">2022</option>
                     </select>
-
+                    <button type="button" name='echeanceOnOff' id='echeanceOnOff' value=1 class="bouton echeanceOff">Ne pas mettre d'échéance</button>
                 </fieldset>
                 <?php
                 if($strCodeOperation=="Ajouter"){
@@ -354,4 +355,6 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
 <footer>
     <?php include($niveau."inc/fragments/footer.php"); ?>
 </footer>
+<script src="<?php echo $niveau ?>js/script_clodiane.js"></script>
+</body>
 </html>
