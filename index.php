@@ -1,28 +1,114 @@
 <?php
-$niveau = "./";
 
-include($niveau."inc/config.inc.php");
+ini_set('display_errors', 1);
+
+$niveau = "";
+
+include ($niveau . "inc/config.inc.php");
+
+// ************************************************ CRÉATION TABLEAU POUR INFOS LISTES *********************************************************************
+
+$strRequeteListe = 'SELECT t_liste.id_liste, nom_liste, hexadecimale, id_utilisateur, id_liste, t_liste.id_couleur
+FROM t_liste INNER JOIN t_couleur ON t_liste.id_couleur = t_couleur.id_couleur
+ORDER BY nom_liste';
+
+
+$arrInfosListes = array();
+$pdosResultat = $pdoConnexion -> prepare($strRequeteListe);
+$pdosResultat -> execute();
+
+for ($cpt = 0; $ligne = $pdosResultat -> fetch(); $cpt++){
+    $arrInfosListes[$cpt]['id_liste'] = $ligne['id_liste'];
+    $arrInfosListes[$cpt]['nom_liste'] = $ligne['nom_liste'];
+    $arrInfosListes[$cpt]['hexadecimale'] = $ligne['hexadecimale'];
+    $arrInfosListes[$cpt]['id_utilisateur'] = $ligne['id_utilisateur'];
+    $arrInfosListes[$cpt]['id_liste'] = $ligne['id_liste'];
+    $arrInfosListes[$cpt]['id_couleur'] = $ligne['id_couleur'];
+
+    $strRequeteNbreItem = '    SELECT nom_item
+        FROM t_item
+        WHERE id_liste = ' . $ligne['id_liste'];
+
+    $arrNbreItem = array();
+    $pdosResultatNbreItem = $pdoConnexion -> prepare($strRequeteNbreItem);
+    $pdosResultatNbreItem -> execute();
+
+    for ($cpt2 = 0; $ligne = $pdosResultatNbreItem -> fetch(); $cpt2++){
+        $arrNbreItem[$cpt2]['nom_item'] = $ligne['nom_item'];
+    }
+
+    $arrInfosListes[$cpt]['nombre_item'] = COUNT($arrNbreItem);
+}
+
+$pdosResultat -> closeCursor();
+
+// ****************************** REQUETE POUR TABLEAU URGENT *****************************************************************************************************************************************
+
+$strRequeteUrgent = 'SELECT t_item.nom_item, echeance, hexadecimale
+FROM t_item
+INNER JOIN t_liste ON t_item.id_liste = t_liste.id_liste
+INNER JOIN t_couleur ON t_liste.id_couleur = t_liste.id_couleur
+WHERE echeance IS NOT NULL AND est_complete = 0
+ORDER BY echeance DESC
+LIMIT 3';
+
+$arrUrgent = array();
+$pdosResultatUrgent = $pdoConnexion -> prepare($strRequeteUrgent);
+$pdosResultatUrgent -> execute();
+
+for ($cpt3 = 0; $ligne = $pdosResultatUrgent -> fetch(); $cpt3++) {
+    $arrUrgent[$cpt3]['nom_item'] = $ligne['nom_item'];
+    $arrUrgent[$cpt3]['echeance'] = $ligne['echeance'];
+    $arrUrgent[$cpt3]['hexadecimale'] = $ligne['hexadecimale'];
+}
+
+$pdosResultatUrgent ->closeCursor();
+
+// ******************************************************************************************************************************************************************************************************************
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TodoList - <?php echo $action." ".$nomDeListe ?></title>
-    <?php include($niveau."inc/fragments/head.php"); ?>
-    <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet tofu</title>
 </head>
-<main>
-    <?php include($niveau."inc/fragments/entete.php"); ?>
-    <a href="../index.php"><div class="icon" id="retourListe">Retour à la liste</div></a>
-    <h1 class="h1 h1Liste">Accueil</h1>
-</main>
-<footer>
-    <?php include($niveau."inc/fragments/footer.php"); ?>
-</footer>
-</html>
+<body>
 
+<h1 class="h1">N'oublie pas le tofu !</h1>
+
+<h2 class="h2 urgent">Urgent !</h2>
+<ul>
+    <?php for ($cptUrgent = 0; $cptUrgent < count($arrUrgent); $cptUrgent++) { ?>
+        <li> <?php echo $arrUrgent[$cptUrgent]['nom_item'] . " " . $arrUrgent[$cptUrgent]['echeance'] . " " . $arrUrgent[$cptUrgent]['hexadecimale']; ?> </li>
+    <?php } ?>
+</ul>
+<h2 class="h2 listes">Listes :</h2>
+<form action="maj/index.php" method="get">
+    <input type="text" name="id_liste" id="id_liste" value="id_liste" hidden>
+    <input type="submit" value="Ajouter" name="btn_ajouter">
+</form>
+<ul>
+    <?php for($cptNom = 0; $cptNom < count($arrInfosListes); $cptNom++){ ?>
+        <h3><a href="maj/index.php"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
+        <form action="maj/index.php" method="get">
+            <li> <?php echo "# ID : " .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
+            <li> <?php echo "Code hexadécimale : " . $arrInfosListes[$cptNom]['hexadecimale']; ?> </li>
+            <li> <?php echo "Nombre d'items de la liste : " . $arrInfosListes[$cptNom]['nombre_item']; ?> </li>
+            <input type="text" name="id_liste" id="id_liste" value="<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>" hidden>
+            <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $arrInfosListes[$cptNom]['nom_liste']; ?>" hidden>
+            <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" hidden>
+            <input type="text" name="id_couleur" id="id_couleur" value="<?php echo $arrInfosListes[$cptNom]['id_couleur']; ?>" hidden>
+            <input type="submit" value="Modifier" name="btn_modifier">
+            <input type="submit" value="Supprimer" name="btn_supprimer">
+        </form>
+
+    <?php } ?>
+</ul>
+
+
+</body>
+</html>
