@@ -1,6 +1,12 @@
 /* Projet TodoList */
 /* @author : Clodiane Charette */
 
+const objFormulaire = {
+    initialiser: function () {
+        document.getElementById("")
+    }
+}
+
 function hideShowEcheance(etat) {
     const inputJour = document.getElementById("jour");
     const inputMois = document.getElementById("mois");
@@ -32,4 +38,7 @@ function hideShowEcheance(etat) {
 document.getElementById("echeanceOnOff").addEventListener("click", function(){
     const valeur = document.getElementById("echeanceOnOff").value
     hideShowEcheance(valeur);
+});
+window.addEventListener('load', function(){
+    objFormulaire.initialiser();
 });

@@ -257,7 +257,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                                 $strCheckedCouleur="checked=true";
                             }
                             ?>
-                            <input type="radio" name="id_couleur" id="aleatoire" value="aleatoire" class="radioCouleur screen-reader-only"<?php echo $strCheckedCouleur ?>>
+                            <input type="radio" name="id_couleur" id="aleatoire" value="aleatoire" class="radioCouleur screen-reader-only"<?php echo $strCheckedCouleur ?> required>
                             <label for="aleatoire" class="label"><div class="cercleCouleur aleatoire"></div><span>Aléatoire</span></label>
                         </li>
                         <?php
@@ -275,10 +275,10 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                 </fieldset>
 
                 <label for="nom" class="label">Nom de l'item*</label>
-                <input type="text" name="nom" id="nom" value="<?php echo $nom_item ?>">
+                <input type="text" name="nom" id="nom" value="<?php echo $nom_item ?>" required pattern="[A-ZÇÀ-Ÿ][a-zA-ZÀ-ÿ '\-]{1,29}">
                 <?php
                 echo "<label for='est-complete' class='label'>Statut de l'item*</label>";
-                echo "<select name='est-complete' id='est-complete' class='completion'>";
+                echo "<select name='est-complete' id='est-complete' class='completion' required>";
                 echo "<option value='empty' class='completion-option'></option>";
                 if($arrItem["complete"]==0){
                     $strSelectedF ="selected";
@@ -290,9 +290,9 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                 }
                 echo "<option value='0' $strSelectedF>Non complétée</option>";
                 echo "<option value='1' $strSelectedT>Complétée</option>";
-                echo "</select>";
                 ?>
-                <fieldset name="date">
+                </select>
+                <fieldset>
                     <legend>Date d'échéance</legend>
                     <select id="jour" name="jour">
                         <option value="0" selected></option>
