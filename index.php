@@ -77,6 +77,12 @@ $pdosResultatUrgent ->closeCursor();
     <link rel="stylesheet" href="css/styles_benjamin.css">
     <title>Projet tofu</title>
 </head>
+
+<header class="header">
+    <h1 class="h1">TODO</h1>
+    <p class="list">list</p>
+</header>
+
 <body>
 
 <h1 class="h1">N'oublie pas le tofu !</h1>
