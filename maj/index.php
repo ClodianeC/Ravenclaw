@@ -17,16 +17,19 @@ switch (true) {
         $strCodeOperation = "afficher";
         break;
     case isset($_GET['btn_nouveau']):
-        // code operation de nouveau
+        // code operation ajouter
         $strCodeOperation = "nouveau";
         break;
-    case isset($_GET['btn_ajouter']):
-        // code operation ajouter
+    case isset($_GET["btn_ajouter"]):
         $strCodeOperation = "ajouter";
         break;
     case isset($_GET['btn_supprimer']):
         // code opération supprimer
         $strCodeOperation = "supprimer";
+        break;
+        case isset($_GET['btn_supprimer_oui']):
+        // code opération supprimer
+        $strCodeOperation = "supprimer_oui";
         break;
     case isset($_GET['btn_enregistrer']):
         $strCodeOperation = "modifier";
@@ -39,7 +42,7 @@ switch (true) {
 
 $arrUpdate = array();
 
-if ($strCodeOperation == "modifier") {
+if ($strCodeOperation == "modifier" || $strCodeOperation == "ajouter") {
     $arrUpdate['nom_liste'] = $_GET['nom_liste'];
     $arrUpdate['id_couleur'] = $_GET['id_couleur'];
 }
@@ -95,8 +98,6 @@ if (isset($_GET['id_liste'])){
     $id_liste = 0;
 }
 
-echo $strCodeOperation;
-
 if ($strCodeOperation == "modifier") {
     $strRequeteUpdate = "UPDATE t_liste SET " .
         "nom_liste='" . $arrUpdate['nom_liste'] . "'," .
@@ -111,17 +112,27 @@ if ($strCodeOperation == "modifier") {
 
 } else if ($strCodeOperation == "ajouter") {
     $strRequeteAjouter = "INSERT INTO t_liste ".
-        "(nom_liste, hexadecimale, id_liste)".
+        "(nom_liste, id_couleur, id_utilisateur)".
         " VALUES ('".
-        $arrUpdate["nom_liste"]."','".
-        $arrUpdate["hexadecimale"]."','".
-        $arrUpdate["id_liste"].")";
+        $arrUpdate["nom_liste"]."',".
+        $arrUpdate["id_couleur"].",1)";
 
     $pdoConnexionAjoutModif = new PDO($strDsn, $strUser, $strPassword);
     $pdoConnexionAjoutModif->exec("SET CHARACTER SET utf8");
     $pdoConnexionAjoutModif->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
     $pdosResultatAjoutModif = $pdoConnexionAjoutModif->query($strRequeteAjouter);
     $pdoConnexionAjoutModif = $pdoConnexionAjoutModif->errorCode();
+
+} else if ($strCodeOperation == "supprimer_oui") {
+    $strRequeteSupprimer = "DELETE FROM t_liste WHERE id_liste =" . $id_liste;
+
+    $pdoConnexionAjoutModif = new PDO($strDsn, $strUser, $strPassword);
+    $pdoConnexionAjoutModif->exec("SET CHARACTER SET utf8");
+    $pdoConnexionAjoutModif->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+    $pdosResultatAjoutModif = $pdoConnexionAjoutModif->query($strRequeteSupprimer);
+    $pdoConnexionAjoutModif = $pdoConnexionAjoutModif->errorCode();
+
+    header('Location: ' . $niveau . 'index.php?btn_supprimer_oui=Oui');
 }
 
 
@@ -142,7 +153,7 @@ if ($strCodeOperation == "modifier") {
 
     <?php if ($strCodeOperation == "afficher") { ?>
         <h1> <?php echo $_GET['nom_liste']; ?> </h1>
-    <?php } else if ($strCodeOperation == "ajouter") { ?>
+    <?php } else if ($strCodeOperation == "nouveau") { ?>
         <h1>Créer une liste</h1>
     <?php } ?>
 
@@ -169,18 +180,32 @@ if ($strCodeOperation == "modifier") {
                 <br>
                 <br>
                 <input type="submit" value="Enregistrer" name="btn_enregistrer">
+                <br>
                 <a href="<?php echo $niveau . "index.php" ?>">Annuler</a>
 
-        <?php } else if ($strCodeOperation == "ajouter") { ?>
+        <?php } else if ($strCodeOperation == "nouveau") { ?>
+            <form action="<?php echo "index.php" ?>" method="get">
             <label for="nom_liste">Nom de la liste : </label>
             <input type="text" name="nom_liste" id="nom_liste">
             <br>
             <br>
-            <form action="<?php echo $niveau . "index.php" ?>">
+            <?php for ($cptCouleur = 0; $cptCouleur < count($arrCouleur2); $cptCouleur++){ ?>
+                <label for="id_couleur"><?php echo $arrCouleur2[$cptCouleur]['nom_couleur_fr'];?></label>
+                <input type="radio" name="id_couleur" id="<?php echo $arrCouleur2[$cptCouleur]['hexadecimale'] ?>" value="<?php echo $arrCouleur2[$cptCouleur]['id_couleur']; ?>">
+            <?php } ?>
+            <br>
+            <br>
                 <input type="submit" value="Ajouter" name="btn_ajouter">
             </form>
             <a href="<?php echo $niveau . "index.php" ?>">Annuler</a>
 
+        <?php } else if ($strCodeOperation == "supprimer") { ?>
+            <form action="<?php echo "index.php" ?>" method="get">
+                <p>Êtes-vous sûr de vouloir supprimer la liste <strong><?php echo $_GET['nom_liste']; ?></strong> et tout ce qu'elle contient ?</p>
+                <input type="text" value="<?php echo $id_liste ?>" name="id_liste" hidden>
+                <input type="submit" value="Oui" name="btn_supprimer_oui">
+            </form>
+            <a href="../index.php">Annuler</a>
         <?php } else { ?>
             <form action="<?php echo $niveau . "index.php" ?>">
                 <p>Nous avons enregistré vos modifications !</p>

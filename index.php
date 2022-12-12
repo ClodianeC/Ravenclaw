@@ -74,6 +74,7 @@ $pdosResultatUrgent ->closeCursor();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles_benjamin.css">
     <title>Projet tofu</title>
 </head>
 <body>
@@ -87,9 +88,13 @@ $pdosResultatUrgent ->closeCursor();
     <?php } ?>
 </ul>
 <h2 class="h2 listes">Listes :</h2>
+<?php
+    if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
+        <p>Nous avons supprimé la liste !</p>
+    <?php } ?>
 <form action="maj/index.php" method="get">
     <input type="text" name="id_liste" id="id_liste" value="id_liste" hidden>
-    <input type="submit" value="Ajouter" name="btn_ajouter">
+    <input type="submit" value="Ajouter" name="btn_nouveau">
 </form>
 <ul>
     <?php for($cptNom = 0; $cptNom < count($arrInfosListes); $cptNom++){ ?>
