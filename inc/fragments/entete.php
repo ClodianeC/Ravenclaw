@@ -29,7 +29,8 @@ $pdosResultatListes->closeCursor();
     <a href="" class="icon_header"><div class="icon" id="deconnexion"></div>Déconnexion</a>
     <a href="" class="icon_header"><div class="icon id="compte></div>Mon compte</a>
     <a class="lienAccueil" href="<?php echo $niveau ?>index.php">
-        <p class="titre">TODO</p>
+        <p class="titre01">TODO</p>
+        <p class="titre02">List</p>
         <p class="slogan">Un gestionnaire de liste adapté à vous</p>
     </a>
     <a class="lienAjouterListe" href="<?php echo $niveau ?>liste/creer_modifier/index.php">Ajouter une liste</a>

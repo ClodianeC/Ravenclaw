@@ -509,7 +509,7 @@ abbr[title]:hover {
   font-size: 1.3rem;
 }
 
-.titre {
+.titre01 {
   font-size: 12rem;
 }
 
@@ -685,6 +685,11 @@ body {
 
 .label {
   display: block;
+}
+
+.echeanceOff,
+.echeanceOn {
+  font-size: 2.2rem;
 }
 
 /** Bouton radio

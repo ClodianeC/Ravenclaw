@@ -3,6 +3,9 @@ $niveau = "../";
 
 include($niveau."inc/config.inc.php");
 
+$strFichierTexte=file_get_contents($niveau."js/messages-erreur.json");
+$jsonMessagesErreur=json_decode($strFichierTexte);
+
 $arr_mois = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
 $strCouleurListe="";
 
@@ -110,7 +113,7 @@ $pdosResultatItems->closeCursor();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TodoList - <?php echo $arrListe["nom"] ?></title>
+    <title>TodoList - Liste <?php echo $arrListe["nom"] ?></title>
     <?php include($niveau."inc/fragments/head.php"); ?>
     <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
 </head>
