@@ -146,6 +146,8 @@ if ($strCodeOperation == "modifier") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_benjamin.css">
+    <script src="https://kit.fontawesome.com/ddf2613701.js" crossorigin="anonymous"></script>
     <title>Projet tofu</title>
 </head>
 
@@ -181,7 +183,7 @@ if ($strCodeOperation == "modifier") {
                 <br>
                 <input type="submit" value="Enregistrer" name="btn_enregistrer">
                 <br>
-                <a href="<?php echo $niveau . "index.php" ?>">Annuler</a>
+                <a href="<?php echo $niveau . "index.php" ?>" class="bouton btn_annuler">Annuler</a>
 
         <?php } else if ($strCodeOperation == "nouveau") { ?>
             <form action="<?php echo "index.php" ?>" method="get">
@@ -195,25 +197,24 @@ if ($strCodeOperation == "modifier") {
             <?php } ?>
             <br>
             <br>
-                <input type="submit" value="Ajouter" name="btn_ajouter">
+                <input type="submit" value="Ajouter" name="btn_ajouter" class=""bouton>
             </form>
-            <a href="<?php echo $niveau . "index.php" ?>">Annuler</a>
+            <a href="<?php echo $niveau . "index.php" ?>" class="bouton btn_annuler">Annuler</a>
 
         <?php } else if ($strCodeOperation == "supprimer") { ?>
             <form action="<?php echo "index.php" ?>" method="get">
                 <p>Êtes-vous sûr de vouloir supprimer la liste <strong><?php echo $_GET['nom_liste']; ?></strong> et tout ce qu'elle contient ?</p>
                 <input type="text" value="<?php echo $id_liste ?>" name="id_liste" hidden>
-                <input type="submit" value="Oui" name="btn_supprimer_oui">
+                <input type="submit" value="Oui" name="btn_supprimer_oui" class="bouton">
             </form>
-            <a href="../index.php">Annuler</a>
+            <a href="../index.php" class="bouton btn_annuler">Annuler</a>
         <?php } else { ?>
             <form action="<?php echo $niveau . "index.php" ?>">
                 <p>Nous avons enregistré vos modifications !</p>
-            <input type="submit" value="Retour à l'accueil" name="btn_accueil">
+            <input type="submit" value="Retour à l'accueil" name="btn_accueil" class="bouton">
             </form>
         <?php } ?>
     </form>
 
 </body>
-
 </html>

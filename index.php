@@ -75,47 +75,57 @@ $pdosResultatUrgent ->closeCursor();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles_benjamin.css">
+    <script src="https://kit.fontawesome.com/ddf2613701.js" crossorigin="anonymous"></script>
     <title>Projet tofu</title>
 </head>
 
 <header class="header">
-    <h1 class="h1">TODO</h1>
-    <p class="list">list</p>
+    <div class="div_header">
+        <h1 class="h1_header">TODO</h1>
+        <p class="list">list</p>
+    </div>
+    <div class="div_small">
+        <small class="small">Un gestionnaire de liste adapté à vous</small>
+    </div>
 </header>
 
 <body>
 
-<h1 class="h1">N'oublie pas le tofu !</h1>
+<!--<h1 class="h1">N'oublie pas le tofu !</h1>-->
 
-<h2 class="h2 urgent">Urgent !</h2>
-<ul>
+<h2 class="h2 urgent">Qui arrivent bientôt à échéance :</h2>
+<ul class="urgent_liste">
     <?php for ($cptUrgent = 0; $cptUrgent < count($arrUrgent); $cptUrgent++) { ?>
         <li> <?php echo $arrUrgent[$cptUrgent]['nom_item'] . " " . $arrUrgent[$cptUrgent]['echeance'] . " " . $arrUrgent[$cptUrgent]['hexadecimale']; ?> </li>
     <?php } ?>
 </ul>
-<h2 class="h2 listes">Listes :</h2>
+<h2 class="h2 listes">Vos listes :</h2>
 <?php
     if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
         <p>Nous avons supprimé la liste !</p>
     <?php } ?>
-<form action="maj/index.php" method="get">
+<form action="maj/index.php" method="get" class="form">
     <input type="text" name="id_liste" id="id_liste" value="id_liste" hidden>
-    <input type="submit" value="Ajouter" name="btn_nouveau">
+    <input type="submit" value="Ajouter une liste" name="btn_nouveau" class="bouton btn_ajouter">
 </form>
 <ul>
     <?php for($cptNom = 0; $cptNom < count($arrInfosListes); $cptNom++){ ?>
-        <h3><a href="maj/index.php"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
-        <form action="maj/index.php" method="get">
-            <li> <?php echo "# ID : " .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
-            <li> <?php echo "Code hexadécimale : " . $arrInfosListes[$cptNom]['hexadecimale']; ?> </li>
-            <li> <?php echo "Nombre d'items de la liste : " . $arrInfosListes[$cptNom]['nombre_item']; ?> </li>
-            <input type="text" name="id_liste" id="id_liste" value="<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>" hidden>
-            <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $arrInfosListes[$cptNom]['nom_liste']; ?>" hidden>
-            <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" hidden>
-            <input type="text" name="id_couleur" id="id_couleur" value="<?php echo $arrInfosListes[$cptNom]['id_couleur']; ?>" hidden>
-            <input type="submit" value="Modifier" name="btn_modifier">
-            <input type="submit" value="Supprimer" name="btn_supprimer">
-        </form>
+            <div class="liste">
+                <div class="nom_liste">
+                    <h3 class="nom_liste_h3"><a class="nom_liste_lien" href="maj/index.php"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
+                </div>
+                <form action="maj/index.php" method="get">
+                    <li> <?php echo "# ID : " .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
+                    <li> <?php echo "Code hexadécimale : " . $arrInfosListes[$cptNom]['hexadecimale']; ?> </li>
+                    <li> <?php echo "Nombre d'items de la liste : " . $arrInfosListes[$cptNom]['nombre_item']; ?> </li>
+                    <input type="text" name="id_liste" id="id_liste" value="<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>" hidden>
+                    <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $arrInfosListes[$cptNom]['nom_liste']; ?>" hidden>
+                    <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" hidden>
+                    <input type="text" name="id_couleur" id="id_couleur" value="<?php echo $arrInfosListes[$cptNom]['id_couleur']; ?>" hidden>
+                    <input type="submit" value="Modifier" name="btn_modifier" class="bouton">
+                    <input type="submit" value="Supprimer" name="btn_supprimer" class="bouton">
+                </form>
+            </div>
 
     <?php } ?>
 </ul>
