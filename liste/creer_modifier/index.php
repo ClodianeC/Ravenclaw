@@ -208,7 +208,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
 <body>
 <main>
     <?php include($niveau."inc/fragments/entete.php"); ?>
-    <a href="../index.php?id_liste=<?php echo $id_liste ?>"><div class="icon" id="retourListe">Retour à la liste</div></a>
+    <a href="../index.php?id_liste=<?php echo $id_liste ?>" id="retourListe" class="retour"><div class="icon"></div><p>Retour à la liste</p></a>
     <?php
     if($strCodeOperation=="Ajouter"){
         echo "<h1 class='h1 h1Liste blanc'>Nouvel item</h1>";

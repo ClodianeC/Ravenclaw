@@ -520,7 +520,8 @@ abbr[title]:hover {
   margin: 0.3rem 0;
 }
 
-.icon_header .icon {
+.icon_header .icon,
+.retour .icon {
   background-image: url(../img/images/sprite-icons.png);
   display: inline-block;
   width: 50px;
@@ -718,6 +719,39 @@ body {
 .avertissement,
 .message {
   color: #FFFFFF;
+}
+
+.retour {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.retour p {
+  margin: 0.3rem;
+}
+
+.retour:link,
+.retour:visited {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.retour:hover,
+.retour:active {
+  text-decoration: underline #FFFFFF solid 1px;
+  color: #FFFFFF;
+}
+
+.retour:link .icon,
+.retour:visited .icon {
+  background-position: 0px 250px;
+}
+
+.retour:hover .icon,
+.retour:active .icon {
+  background-position: 50px 250px;
 }
 
 /** Item de liste
