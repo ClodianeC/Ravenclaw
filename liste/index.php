@@ -129,22 +129,28 @@ $pdosResultatItems->closeCursor();
     <ul class="liste">
         <?php
         for($intCptAffichageItems = 0; $intCptAffichageItems<count($arrItems); $intCptAffichageItems++){
+            if($intCptAffichageItems%2==0){
+                $strPairImpair = "pair";
+            }
+            else{
+                $strPairImpair = "impair";
+            }
             $id_mois = $arrItems[$intCptAffichageItems]["mois"]-1;
             $id_item = $arrItems[$intCptAffichageItems]["id"];
             $strCouleur = $arrItems[$intCptAffichageItems]["couleur"];
-            echo "<li class='itemListe'>";
+            echo "<li class='itemListe $strPairImpair'>";
             echo "<h2 class='h2 h2Item $strCouleur'>".$arrItems[$intCptAffichageItems]["nom"]."</h2>";
             if($arrItems[$intCptAffichageItems]["echeance"]!=""){
-                echo "<p>Date due: ".$arrItems[$intCptAffichageItems]["jour"]." ".$arr_mois[$id_mois]." ".$arrItems[$intCptAffichageItems]["annee"]."</p>";
+                echo "<p class='date'>Date due: ".$arrItems[$intCptAffichageItems]["jour"]." ".$arr_mois[$id_mois]." ".$arrItems[$intCptAffichageItems]["annee"]."</p>";
             }
             else{
-                echo "<p>Date due: Non-déterminée";
+                echo "<p class='date'>Date due: Non-déterminée";
             }
             if($arrItems[$intCptAffichageItems]["completee"]==0){
-                echo "<p>Completion: Non-complété";
+                echo "<p class='completion'>Complétion: Non-complété";
             }
             else{
-                echo "<p>Completion: Complété";
+                echo "<p class='completion'>Complétion: Complété";
             }
             echo "<div class='boutonsItems'>";
             echo "<form action='creer_modifier/index.php' method='get'>

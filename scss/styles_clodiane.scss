@@ -165,6 +165,9 @@
 .boutonsEntete{
   display: flex;
 }
+.header{
+  margin: 0 0 3rem 0;
+}
 
 /** Footer
     ========================================================================== */
@@ -195,6 +198,9 @@
 .infos_footer{
   display: flex;
   justify-content: space-around;
+}
+footer{
+  margin: 3rem 0 0 0;
 }
 
 /** Général
@@ -385,6 +391,31 @@ body{
 }
 .boutonsItems{
   display: flex;
+}
+.liste{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+.itemListe{
+  display: inline-flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 4rem;
+}
+.boutonsItems{
+  align-self: flex-end;
+  margin: 1rem 3rem;
+}
+.h2Item{
+  padding: 0.5rem 2rem;
+  margin-bottom: 1.2rem;
+}
+.date,
+.completion{
+  margin: 1rem 3rem;
 }
 
 /** Formulaire

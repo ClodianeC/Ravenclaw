@@ -51,4 +51,3 @@ $pdosResultatListes->closeCursor();
         </ul>
     </div>
 </div>
-<br><br><br>
