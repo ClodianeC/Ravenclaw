@@ -39,19 +39,27 @@ body {
   font-family: "Caviar Dreams", sans-serif;
 }
 
-.small::after {
+.div_small::after {
   background: linear-gradient(to right, #fff 0%, transparent 100%);
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 5px;
+  left: -15px;
   height: 2px;
   width: 100%;
+}
+
+.h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .liste {
   max-width: 45%;
   margin-bottom: 20px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .nom_liste {
@@ -80,16 +88,29 @@ body {
   border-radius: 15px;
   border: solid 2px white;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .bouton:hover {
   color: black;
   background: white;
   height: 50px;
-  width: 19%;
   border-radius: 15px;
   border: solid 2px black;
+}
+
+.btn_annuler {
+  color: white;
+  border: solid 2px white;
+  border-radius: 15px;
+  padding: 10px 20px 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.btn_annuler:hover {
+  color: black;
+  background: white;
 }
 
 .form {
@@ -99,6 +120,42 @@ body {
 
 li {
   list-style: none;
+}
+
+.li_urgent {
+  gap: 10px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-inline-start: 0px;
+}
+
+.boutons_form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.form_ajouter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nom_liste_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 325px) {
+  .small {
+    top: -10px;
+    left: -15px;
+  }
 }
 
 /*# sourceMappingURL=styles_benjamin.css.map */

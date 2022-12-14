@@ -151,63 +151,74 @@ if ($strCodeOperation == "modifier") {
     <title>Projet tofu</title>
 </head>
 
+<header class="header">
+    <div class="div_header">
+        <h1 class="h1_header">TODO</h1>
+        <p class="list">list</p>
+    </div>
+    <div class="div_small">
+        <small class="small">Un gestionnaire de liste adapté à vous</small>
+    </div>
+</header>
+
 <body>
 
     <?php if ($strCodeOperation == "afficher") { ?>
-        <h1> <?php echo $_GET['nom_liste']; ?> </h1>
+        <h1 class="nom_liste_page"> <?php echo $_GET['nom_liste']; ?> </h1>
     <?php } else if ($strCodeOperation == "nouveau") { ?>
-        <h1>Créer une liste</h1>
+        <h1 class="nom_liste_page">Créer une liste</h1>
     <?php } ?>
 
     <?php
         if ($strCodeOperation == "afficher") { ?>
-            <form action="<?php echo "index.php" ?>">
+            <form action="<?php echo "index.php" ?>" class="form_ajouter">
                 <input type="text" name="id_liste" id="id_liste" value="<?php echo $_GET['id_liste']; ?>" hidden>
                 <label for="nom_liste">Nom de la liste : </label>
-                <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $_GET['nom_liste'] ?>">
+                <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $_GET['nom_liste']; ?>">
                 <br>
                 <br>
                 <label for="hexadecimale">Couleur de la liste : </label>
-                <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $_GET['hexadecimale'] ?>">
-                <br>
+                <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $_GET['hexadecimale'] ?>" hidden>
                 <br>
                 <?php for ($cptCouleur = 0; $cptCouleur < count($arrCouleur2); $cptCouleur++){
                     $strChecked = "";
                     if ($_GET['hexadecimale'] == $arrCouleur2[$cptCouleur]['hexadecimale']) {
                         $strChecked = "checked = 'checked'";
                     } ?>
-                <label for="id_couleur"><?php echo $arrCouleur2[$cptCouleur]['nom_couleur_fr'];?></label>
-                <input type="radio" name="id_couleur" id="<?php echo $arrCouleur2[$cptCouleur]['hexadecimale'] ?>" <?php echo $strChecked;?> value="<?php echo $arrCouleur2[$cptCouleur]['id_couleur']; ?>">
+                <label for="id_couleur" style="color: #<?php echo $arrCouleur2[$cptCouleur]['hexadecimale']; ?>"><?php echo $arrCouleur2[$cptCouleur]['nom_couleur_fr'];?></label>
+                <input type="radio" name="id_couleur" id="<?php echo $arrCouleur2[$cptCouleur]['hexadecimale']; ?>" <?php echo $strChecked;?> value="<?php echo $arrCouleur2[$cptCouleur]['id_couleur']; ?>">
                 <?php } ?>
                 <br>
                 <br>
-                <input type="submit" value="Enregistrer" name="btn_enregistrer">
+                <input type="submit" value="Enregistrer" name="btn_enregistrer" class="bouton">
                 <br>
-                <a href="<?php echo $niveau . "index.php" ?>" class="bouton btn_annuler">Annuler</a>
+                <a href="<?php echo $niveau . "index.php" ?>" class="btn_annuler">Annuler</a>
 
         <?php } else if ($strCodeOperation == "nouveau") { ?>
-            <form action="<?php echo "index.php" ?>" method="get">
+            <form action="<?php echo "index.php" ?>" method="get" class="form_ajouter">
             <label for="nom_liste">Nom de la liste : </label>
             <input type="text" name="nom_liste" id="nom_liste">
             <br>
             <br>
+                <label for="hexadecimale">Couleur de la liste : </label>
+                <br>
             <?php for ($cptCouleur = 0; $cptCouleur < count($arrCouleur2); $cptCouleur++){ ?>
-                <label for="id_couleur"><?php echo $arrCouleur2[$cptCouleur]['nom_couleur_fr'];?></label>
+                <label for="id_couleur" style="color: #<?php echo $arrCouleur2[$cptCouleur]['hexadecimale']; ?>"><?php echo $arrCouleur2[$cptCouleur]['nom_couleur_fr'];?></label>
                 <input type="radio" name="id_couleur" id="<?php echo $arrCouleur2[$cptCouleur]['hexadecimale'] ?>" value="<?php echo $arrCouleur2[$cptCouleur]['id_couleur']; ?>">
             <?php } ?>
             <br>
             <br>
-                <input type="submit" value="Ajouter" name="btn_ajouter" class=""bouton>
+                <input type="submit" value="Ajouter" name="btn_ajouter" class="bouton">
+                <a href="<?php echo $niveau . "index.php" ?>" class="btn_annuler">Annuler</a>
             </form>
-            <a href="<?php echo $niveau . "index.php" ?>" class="bouton btn_annuler">Annuler</a>
 
         <?php } else if ($strCodeOperation == "supprimer") { ?>
-            <form action="<?php echo "index.php" ?>" method="get">
+            <form action="<?php echo "index.php" ?>" method="get" class="form_ajouter">
                 <p>Êtes-vous sûr de vouloir supprimer la liste <strong><?php echo $_GET['nom_liste']; ?></strong> et tout ce qu'elle contient ?</p>
                 <input type="text" value="<?php echo $id_liste ?>" name="id_liste" hidden>
                 <input type="submit" value="Oui" name="btn_supprimer_oui" class="bouton">
+                <a href="../index.php" class="btn_annuler">Annuler</a>
             </form>
-            <a href="../index.php" class="bouton btn_annuler">Annuler</a>
         <?php } else { ?>
             <form action="<?php echo $niveau . "index.php" ?>">
                 <p>Nous avons enregistré vos modifications !</p>
