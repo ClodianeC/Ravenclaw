@@ -25,23 +25,30 @@ $pdosResultatListes->closeCursor();
     <link rel="stylesheet" href="<?php echo $niveau ?>css/styles_clodiane.css">
 </head>
 <div class="header">
-    <p class="bienvenue">Bienvenue <?php echo $nomUtilisateur ?></p>
-    <a href="" class="icon_header"><div class="icon" id="deconnexion"></div>Déconnexion</a>
-    <a href="" class="icon_header"><div class="icon id="compte></div>Mon compte</a>
+    <div class="topEntete">
+        <p class="bienvenue">Bienvenue <?php echo $nomUtilisateur ?></p>
+        <div class="boutonsEntete">
+            <a href="" class="icon_header" id="compte"><div class="icon" ></div><p>Mon compte</p></a>
+            <a href="" class="icon_header" id="deconnexion"><div class="icon"></div><p>Déconnexion</p></a>
+        </div>
+    </div>
     <a class="lienAccueil" href="<?php echo $niveau ?>index.php">
         <p class="titre01">TODO</p>
         <p class="titre02">List</p>
         <p class="slogan">Un gestionnaire de liste adapté à vous</p>
     </a>
-    <a class="lienAjouterListe" href="<?php echo $niveau ?>liste/creer_modifier/index.php">Ajouter une liste</a>
-    <ul>
-        <?php
+    <div class="listesEntete">
+        <p class="titreEnteteListe">Vos listes</p>
+        <a class="lienAjouterListe lienBouton" href="<?php echo $niveau ?>liste/maj/index.php?ajouter=ajouter">Ajouter une liste</a>
+        <ul class="listeLiensEntete">
+            <?php
             for($intCptAffichageListes=0; $intCptAffichageListes<count($arrListes); $intCptAffichageListes++){
                 $idListe = $arrListes[$intCptAffichageListes]['id'];
                 $nomListe = $arrListes[$intCptAffichageListes]['nom'];
-                echo "<li class='lienListe'><a href='".$niveau."liste/index.php?id_liste=$idListe'>$nomListe</a></li>";
+                echo "<li class='itemListeEntete'><a class='lienListeEntete' href='".$niveau."liste/index.php?id_liste=$idListe'>$nomListe</a></li>";
             }
-        ?>
-    </ul>
+            ?>
+        </ul>
+    </div>
 </div>
 <br><br><br>

@@ -503,10 +503,60 @@ abbr[title]:hover {
     ========================================================================== */
 .bienvenue {
   color: #FFFFFF;
+  font-family: "Caviar Dreams";
+  font-size: 2rem;
 }
 
 .icon_header {
   font-size: 1.3rem;
+  margin: 1rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon_header p {
+  margin: 0.3rem 0;
+}
+
+.icon_header .icon {
+  background-image: url(../img/images/sprite-icons.png);
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.icon_header:link#compte .icon,
+.icon_header:visited#compte .icon {
+  background-position: 0px 0px;
+}
+
+.icon_header:hover#compte .icon,
+.icon_header:active#compte .icon {
+  background-position: 50px 0px;
+  color: red;
+}
+
+.icon_header:link,
+.icon_header:visited {
+  text-decoration: none;
+}
+
+.icon_header:hover,
+.icon_header:active {
+  text-decoration: underline #FFFFFF 1px solid;
+}
+
+.icon_header:link#deconnexion .icon,
+.icon_header:visited#deconnexion .icon {
+  background-position: 0px 50px;
+}
+
+.icon_header:hover#deconnexion .icon,
+.icon_header:active#deconnexion .icon {
+  background-position: 50px 50px;
+  color: red;
 }
 
 .titre01 {
@@ -520,6 +570,99 @@ abbr[title]:hover {
 .header {
   background-color: #000000;
   border: #FFFFFF solid 3px;
+}
+
+.itemListeEntete {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.lienListeEntete:link,
+.lienListeEntete:visited {
+  color: #FFFFFF;
+}
+
+.lienListeEntete:hover,
+.lienListeEntete:active {
+  color: #ABABAB;
+  font-size: 1.7rem;
+}
+
+.listeLiensEntete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.lienAccueil {
+  line-height: 0;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20%;
+  margin-bottom: 5rem;
+}
+
+.lienAccueil:link .titre01,
+.lienAccueil:link .titre02,
+.lienAccueil:visited .titre01,
+.lienAccueil:visited .titre02 {
+  color: #FFFFFF;
+  text-decoration: underline #FFFFFF solid 4px;
+}
+
+.lienAccueil:hover .titre01,
+.lienAccueil:hover .titre02,
+.lienAccueil:active .titre01,
+.lienAccueil:active .titre02 {
+  color: #ABABAB;
+  text-decoration: underline #ABABAB solid 4px;
+}
+
+.titre01,
+.titre02 {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-top: 6rem;
+}
+
+.slogan {
+  color: #FFFFFF;
+  padding-left: 10rem;
+}
+
+.titre02 {
+  font-size: 4rem;
+}
+
+.lienAjouterListe {
+  display: block;
+}
+
+.titreEnteteListe {
+  color: #FFFFFF;
+  font-size: 3rem;
+  text-align: center;
+  margin: 1.5rem auto;
+  font-family: "Caviar Dreams";
+}
+
+.listesEntete {
+  border: #FFFFFF solid 3px;
+  margin: 1rem;
+}
+
+.lienAjouterListe {
+  margin: 2.5rem auto;
+}
+
+.topEntete {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.boutonsEntete {
+  display: flex;
 }
 
 /** Footer
@@ -672,7 +815,7 @@ body {
   width: 315px;
   height: 70px;
   font-size: 3rem;
-  display: inline-block;
+  display: block;
   text-align: center;
   line-height: 60px;
 }

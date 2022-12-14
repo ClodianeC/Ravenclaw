@@ -11,5 +11,6 @@
         <li class="inspi">Tâches à faire</li>
         <li class="inspi">Sites web inspirants</li>
     </ul>
+    <img src="<?php echo $niveau ?>img/images/logo-footer.jpg" class="img_footer">
     <p class="droits">TodoList 2022 | Tous droits réservés<br>Réalisé dans le cadre du cours RPNI au Cégep de Sainte-Foy</p>
 </div>
