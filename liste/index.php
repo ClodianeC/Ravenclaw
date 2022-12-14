@@ -146,16 +146,18 @@ $pdosResultatItems->closeCursor();
             else{
                 echo "<p>Completion: Complété";
             }
+            echo "<div class='boutonsItems'>";
             echo "<form action='creer_modifier/index.php' method='get'>
                   <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
                   <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
-                  <button type='submit' name='edit' value='edit'><div class='icon'></div><p>Éditer</p></button>
+                  <button type='submit' name='edit' value='edit' class='buttonEdit'><div class='icon'></div><p>Éditer</p></button>
                   </form>";
             echo "<form action='index.php' method='get'>
                      <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
                      <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
-                     <button type='submit' name='delete' value='delete'><div class='icon'></div><p>Supprimer</p></button>
+                     <button type='submit' name='delete' value='delete' class='buttonDelete'><div class='icon'></div><p>Supprimer</p></button>
                   </form>";
+            echo "</div>";
             echo "</li>";
         }
         ?>

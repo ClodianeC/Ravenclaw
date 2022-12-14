@@ -873,6 +873,61 @@ body {
   line-height: 60px;
 }
 
+.buttonDelete,
+.buttonEdit {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+}
+
+.buttonDelete .icon,
+.buttonEdit .icon {
+  background-image: url(../img/images/sprite-icons.png);
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.buttonDelete p,
+.buttonEdit p {
+  text-decoration: none;
+}
+
+.buttonDelete:hover p,
+.buttonDelete:active p,
+.buttonEdit:hover p,
+.buttonEdit:active p {
+  text-decoration: underline #FFFFFF solid 1px;
+}
+
+.buttonDelete .icon {
+  background-position: 0px 100px;
+}
+
+.buttonDelete:hover .icon,
+.buttonDelete:active .icon {
+  background-position: 50px 100px;
+}
+
+.buttonEdit .icon {
+  background-position: 0px 150px;
+}
+
+.buttonEdit:hover .icon,
+.buttonEdit:active .icon {
+  background-position: 50px 150px;
+}
+
+.buttonDelete p,
+.buttonEdit p {
+  font-size: 1.3rem;
+  margin: 0.3rem;
+}
+
+.boutonsItems {
+  display: flex;
+}
+
 /** Formulaire
     ========================================================================== */
 .formulaireItem {
