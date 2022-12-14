@@ -681,6 +681,25 @@ abbr[title]:hover {
 .droits {
   font-size: 1.2rem;
   text-align: center;
+  margin: 5rem auto 2rem auto;
+}
+
+.inspiration {
+  margin: 1.5rem 2.5rem;
+}
+
+.liste-inspi {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.img_footer {
+  max-width: 600px;
+}
+
+.infos_footer {
+  display: flex;
+  justify-content: space-around;
 }
 
 /** Général
