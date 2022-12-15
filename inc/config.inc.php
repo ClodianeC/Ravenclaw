@@ -2,7 +2,6 @@
 ini_set('display_errors', 1);
 
 
-
 // Verifier si l'exécution se fait sur le serveur de développement (local) ou celui de la production:
 if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0, 7) == '192.168')) {
     $blnLocal = TRUE;
