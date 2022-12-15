@@ -101,9 +101,9 @@ $pdosResultatUrgent ->closeCursor();
 </ul>
 <h2 class="h2 listes">Vos listes :</h2>
 <?php
-    if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
-        <p class="h2">Nous avons supprimé la liste !</p>
-    <?php } ?>
+if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
+    <p class="h2">Nous avons supprimé la liste !</p>
+<?php } ?>
 <form action="maj/index.php" method="get" class="form">
     <input type="text" name="id_liste" id="id_liste" value="id_liste" hidden>
     <input type="submit" value="Ajouter une liste" name="btn_nouveau" class="bouton btn_ajouter">
@@ -128,6 +128,20 @@ $pdosResultatUrgent ->closeCursor();
                     </div>
                 </form>
             </div>
+            <form action="maj/index.php" method="get">
+                <li> <?php echo "Liste #" .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
+                <li> <?php echo "Code de couleur hexadécimale : " . $arrInfosListes[$cptNom]['hexadecimale']; ?> </li>
+                <li> <?php echo "Nombre d'items de la liste : " . $arrInfosListes[$cptNom]['nombre_item']; ?> </li>
+                <input type="text" name="id_liste" id="id_liste" value="<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>" hidden>
+                <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $arrInfosListes[$cptNom]['nom_liste']; ?>" hidden>
+                <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" hidden>
+                <input type="text" name="id_couleur" id="id_couleur" value="<?php echo $arrInfosListes[$cptNom]['id_couleur']; ?>" hidden>
+                <div class="boutons_form">
+                    <input type="submit" value="Modifier" name="btn_modifier" class="bouton">
+                    <input type="submit" value="Supprimer" name="btn_supprimer" class="bouton">
+                </div>
+            </form>
+        </div>
 
     <?php } ?>
 </ul>
