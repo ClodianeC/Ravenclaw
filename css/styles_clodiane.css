@@ -886,6 +886,16 @@ body {
   line-height: 60px;
 }
 
+.bouton:hover,
+.bouton:active,
+.lienBouton:hover,
+.lienBouton:active {
+  color: #ABABAB;
+  border-color: #ABABAB;
+  width: 330px;
+  height: 75px;
+}
+
 .buttonDelete,
 .buttonEdit {
   background-color: #000000;
@@ -969,6 +979,10 @@ body {
 .date,
 .completion {
   margin: 1rem 3rem;
+}
+
+.buttonAdd {
+  margin: 3rem auto;
 }
 
 /** Formulaire

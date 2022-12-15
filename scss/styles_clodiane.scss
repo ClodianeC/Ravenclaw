@@ -352,6 +352,15 @@ body{
   text-align: center;
   line-height: 60px;
 }
+.bouton:hover,
+.bouton:active,
+.lienBouton:hover,
+.lienBouton:active{
+  color: $gPale;
+  border-color: $gPale;
+  width: 330px;
+  height: 75px;
+}
 .buttonDelete,
 .buttonEdit{
   background-color: $noir;
@@ -420,6 +429,9 @@ body{
 .date,
 .completion{
   margin: 1rem 3rem;
+}
+.buttonAdd{
+  margin: 3rem auto;
 }
 
 /** Formulaire

@@ -124,7 +124,7 @@ $pdosResultatItems->closeCursor();
     <p class="message"><?php echo $strMessage ?></p>
     <form action="creer_modifier/index.php" method="get">
         <?php echo "<input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>" ?>
-        <button type="submit" name="add" id="add" value="add" class="bouton"></div>Ajouter un item</button>
+        <button type="submit" name="add" id="add" value="add" class="bouton buttonAdd"></div>Ajouter un item</button>
     </form>
     <ul class="liste">
         <?php
