@@ -362,6 +362,7 @@ h4,
 .bouton,
 .lienBouton {
   font-family: "Caviar Dreams", sans-serif;
+  font-weight: 100;
 }
 
 /* Base décimale */
