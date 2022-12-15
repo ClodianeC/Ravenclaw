@@ -208,7 +208,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
 <body>
 <main>
     <?php include($niveau."inc/fragments/entete.php"); ?>
-    <a href="../index.php?id_liste=<?php echo $id_liste ?>"><div class="icon" id="retourListe">Retour à la liste</div></a>
+    <a href="../index.php?id_liste=<?php echo $id_liste ?>" id="retourListe" class="retour"><div class="icon"></div><p>Retour à la liste</p></a>
     <?php
     if($strCodeOperation=="Ajouter"){
         echo "<h1 class='h1 h1Liste blanc'>Nouvel item</h1>";
@@ -273,83 +273,92 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                         ?>
                     </ul>
                 </fieldset>
-
-                <label for="nom" class="label">Nom de l'item*</label>
-                <input type="text" name="nom" id="nom" value="<?php echo $nom_item ?>" required pattern="[A-ZÇÀ-Ÿ][a-zA-ZÀ-ÿ '\-]{1,29}">
-                <?php
-                echo "<label for='est-complete' class='label'>Statut de l'item*</label>";
-                echo "<select name='est-complete' id='est-complete' class='completion' required>";
-                echo "<option value='empty' class='completion-option'></option>";
-                if($arrItem["complete"]==0){
-                    $strSelectedF ="selected";
-                    $strSelectedT ="";
-                }
-                else{
-                    $strSelectedT ="selected";
-                    $strSelectedF ="";
-                }
-                echo "<option value='0' $strSelectedF>Non complétée</option>";
-                echo "<option value='1' $strSelectedT>Complétée</option>";
-                ?>
-                </select>
-                <fieldset>
-                    <legend>Date d'échéance</legend>
-                    <select id="jour" name="jour">
-                        <option value="0" selected></option>
+                <div class="conteneurForm">
+                    <div class="conteneurNom">
+                        <label for="nom" class="label">Nom de l'item*</label>
+                        <input type="text" name="nom" class="nomForm" id="nom" value="<?php echo $nom_item ?>" required pattern="[A-ZÇÀ-Ÿ][a-zA-ZÀ-ÿ '\-]{1,29}">
+                    </div>
+                    <div class="conteneurCompletion">
                         <?php
-                        for($intCptJour = 1; $intCptJour<=31; $intCptJour++){
-                            $strSelectedJour = "";
-                            if($jour_item==$intCptJour){
-                                $strSelectedJour = "selected";
-                            }
-                            echo "<option value='$intCptJour' $strSelectedJour>$intCptJour</option>";
+                        echo "<label for='est-complete' class='label'>Statut de l'item*</label>";
+                        echo "<select name='est-complete' id='est-complete' class='completionForm' required>";
+                        echo "<option value='empty' class='completion-option'></option>";
+                        if($arrItem["complete"]==0){
+                            $strSelectedF ="selected";
+                            $strSelectedT ="";
                         }
-                        ?>
-                    </select>
-                    <select id="mois" name="mois">
-                        <option value="0" selected></option>
-                        <?php
-                        for($intCptMois = 1; $intCptMois<=count($arr_mois); $intCptMois++){
-                            $strSelectedMois = "";
-                            if($mois_item==$intCptMois){
-                                $strSelectedMois = "selected";
-                            }
-                            echo "<option value='$intCptMois' $strSelectedMois>".$arr_mois[$intCptMois-1]."</option>";
+                        else{
+                            $strSelectedT ="selected";
+                            $strSelectedF ="";
                         }
+                        echo "<option value='0' $strSelectedF>Non complétée</option>";
+                        echo "<option value='1' $strSelectedT>Complétée</option>";
                         ?>
-                    </select>
-                    <select id="annee" name="annee">
-                        <option value="0" selected></option>
-                        <?php
-                        $intAnneeActu = date("Y");
-                        $intAnneeMin = $intAnneeActu-15;
-                        $intAnneeMax = $intAnneeActu+15;
-                        for($intCptAnnee=$intAnneeMax; $intCptAnnee>=$intAnneeMin; $intCptAnnee--){
-                            $strSelectedAnnee = "";
-                            if($annee_item==$intCptAnnee){
-                                $strSelectedAnnee = "selected";
-                            }
-                            echo "<option value='$intCptAnnee' $strSelectedAnnee>$intCptAnnee</option>";
-                        }
-                        ?>
-                        <option value="01">2022</option>
-                    </select>
-                    <button type="button" name='echeanceOnOff' id='echeanceOnOff' value=1 class="bouton echeanceOff">Ne pas mettre d'échéance</button>
-                </fieldset>
-                <?php
-                if($strCodeOperation=="Ajouter"){
-                    echo "<button type='submit' name='ajouter' id='ajouter' value='ajouter' class='bouton'>Ajouter l'item</button>";
-                }
-                elseif($strCodeOperation=="Modifier"){
-                    echo "<button type='submit' name='modifier' id='modifier' value='modifier' class='bouton'>Modifier l'item</button>";
-                }
-                    echo "<a href='../index.php?id_liste=$id_liste' class='lienBouton'>Annuler</a>";
-            }
-            else{
-                echo "<p>$strMessage</p>";
-                echo "<a href='../index.php?id_liste=$id_liste' class='lienBouton'>Retourner à la liste</a>";
-            }
-            ?>
+                        </select>
+                    </div>
+                    <fieldset class="fieldsetDate">
+                        <legend>Date d'échéance</legend>
+                        <div>
+                            <select id="jour" name="jour" class="jourForm">
+                                <option value="0" selected></option>
+                                <?php
+                                for($intCptJour = 1; $intCptJour<=31; $intCptJour++){
+                                    $strSelectedJour = "";
+                                    if($jour_item==$intCptJour){
+                                        $strSelectedJour = "selected";
+                                    }
+                                    echo "<option value='$intCptJour' $strSelectedJour>$intCptJour</option>";
+                                }
+                                ?>
+                            </select>
+                            <select id="mois" name="mois" class="moisForm">
+                                <option value="0" selected></option>
+                                <?php
+                                for($intCptMois = 1; $intCptMois<=count($arr_mois); $intCptMois++){
+                                    $strSelectedMois = "";
+                                    if($mois_item==$intCptMois){
+                                        $strSelectedMois = "selected";
+                                    }
+                                    echo "<option value='$intCptMois' $strSelectedMois>".$arr_mois[$intCptMois-1]."</option>";
+                                }
+                                ?>
+                            </select>
+                            <select id="annee" name="annee" class="anneeForm">
+                                <option value="0" selected></option>
+                                <?php
+                                $intAnneeActu = date("Y");
+                                $intAnneeMin = $intAnneeActu-15;
+                                $intAnneeMax = $intAnneeActu+15;
+                                for($intCptAnnee=$intAnneeMax; $intCptAnnee>=$intAnneeMin; $intCptAnnee--){
+                                    $strSelectedAnnee = "";
+                                    if($annee_item==$intCptAnnee){
+                                        $strSelectedAnnee = "selected";
+                                    }
+                                    echo "<option value='$intCptAnnee' $strSelectedAnnee>$intCptAnnee</option>";
+                                }
+                                ?>
+                                <option value="01">2022</option>
+                            </select>
+                        </div>
+                        <button type="button"  name='echeanceOnOff' id='echeanceOnOff' value=1 class="bouton echeanceOff boutonEcheance">Ne pas mettre d'échéance</button>
+                    </fieldset>
+                </div>
+                <div class="boutonsForm">
+                    <?php
+                    if($strCodeOperation=="Ajouter"){
+                        echo "<button type='submit' name='ajouter' id='ajouter' value='ajouter' class='bouton buttonAjouter'>Ajouter l'item</button>";
+                    }
+                    elseif($strCodeOperation=="Modifier"){
+                        echo "<button type='submit' name='modifier' id='modifier' value='modifier' class='bouton buttonModifier'>Modifier l'item</button>";
+                    }
+                    echo "<a href='../index.php?id_liste=$id_liste' class='lienBouton buttonAnnuler'>Annuler</a>";
+                    }
+                    else{
+                        echo "<p>$strMessage</p>";
+                        echo "<a href='../index.php?id_liste=$id_liste' class='lienBouton buttonRetour'>Retourner à la liste</a>";
+                    }
+                    ?>
+                </div>
     </form>
 </main>
 <footer>
