@@ -699,7 +699,7 @@ abbr[title]:hover {
 }
 
 .img_footer {
-  max-width: 600px;
+  max-width: 400px;
 }
 
 .infos_footer {
@@ -760,6 +760,11 @@ body {
 .retour:hover .icon,
 .retour:active .icon {
   background-position: 50px 250px;
+}
+
+.avertissement,
+.h2Liste {
+  margin-left: 3rem;
 }
 
 /** Item de liste
@@ -948,7 +953,7 @@ body {
   display: inline-flex;
   flex-direction: column;
   width: 400px;
-  margin-top: 4rem;
+  margin: 0 3rem 4rem 3rem;
 }
 
 .boutonsItems {
@@ -979,6 +984,92 @@ body {
 .echeanceOff,
 .echeanceOn {
   font-size: 2.2rem;
+}
+
+.fieldsetDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border: none;
+}
+
+.completionForm,
+.nomForm,
+.jourForm,
+.moisForm,
+.anneeForm {
+  color: #FFFFFF;
+  background-color: #000000;
+  border: solid #FFFFFF 3px;
+  height: 50px;
+}
+
+.completionForm,
+.nomForm {
+  width: 250px;
+}
+
+.moisForm {
+  width: 120px;
+}
+
+.jourForm {
+  width: 50px;
+}
+
+.anneeForm {
+  width: 70px;
+}
+
+.jourForm,
+.moisForm,
+.anneeForm {
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+
+.listeCouleur {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.fieldset_couleur {
+  padding: 0;
+  border: none;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+
+.conteneurForm {
+  margin: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.choix_couleur {
+  text-align: center;
+  margin: 1rem;
+}
+
+.boutonsForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.buttonAjouter,
+.buttonModifier,
+.buttonAnnuler,
+.buttonRetour,
+.conteneurNom,
+.conteneurCompletion,
+.fieldsetDate {
+  margin: 1rem;
 }
 
 /** Bouton radio
