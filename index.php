@@ -112,7 +112,7 @@ $pdosResultatUrgent ->closeCursor();
     <?php for($cptNom = 0; $cptNom < count($arrInfosListes); $cptNom++){ ?>
             <div class="liste">
                 <div class="nom_liste" style="background: #<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>">
-                    <h3 class="nom_liste_h3"><a class="nom_liste_lien" href="liste/index.php?id_liste=<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
+                    <h3 class="nom_liste_h3"><a class="nom_liste_lien <?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" href="liste/index.php?id_liste=<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
                 </div>
                 <form action="maj/index.php" method="get">
                     <li> <?php echo "Liste #" .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
@@ -135,4 +135,5 @@ $pdosResultatUrgent ->closeCursor();
 
 </body>
 <script src="js/script_benjamin.js"></script>
+
 </html>

@@ -74,7 +74,8 @@ body {
   margin-left: 20px;
 }
 
-.nom_liste_lien:hover {
+.nom_liste_lien:hover,
+.nom_liste_lien:active {
   color: white;
   margin-left: 20px;
   text-decoration: underline;
@@ -91,7 +92,8 @@ body {
   margin-bottom: 15px;
 }
 
-.bouton:hover {
+.bouton:hover,
+.bouton:active {
   color: black;
   background: white;
   height: 50px;
@@ -108,7 +110,8 @@ body {
   font-size: 12px;
 }
 
-.btn_annuler:hover {
+.btn_annuler:hover,
+.btn_annuler:active {
   color: black;
   background: white;
 }
@@ -159,6 +162,17 @@ ul {
   .bouton {
     width: 125px;
   }
+}
+.FFFFFF,
+.ABABAB {
+  color: black;
+}
+
+.FFFFFF:hover,
+.FFFFFF:active,
+.ABABAB:hover,
+.ABABAB:active {
+  color: black;
 }
 
 /*# sourceMappingURL=styles_benjamin.css.map */
