@@ -1,3 +1,164 @@
+body {
+  background: black;
+  color: white;
+  font-family: "Roboto Thin", sans-serif;
+}
 
+.header {
+  border: solid 2px white;
+}
+
+.div_header {
+  display: flex;
+  padding-left: 10px;
+  justify-content: center;
+}
+
+.h1_header {
+  font-family: "Caviar Dreams", sans-serif;
+  font-weight: 100;
+  font-size: 64px;
+}
+
+.list {
+  margin-top: 3.5em;
+  font-size: 24px;
+  font-family: "Caviar Dreams", sans-serif;
+}
+
+.div_small {
+  position: absolute;
+  left: 50%;
+  top: 17%;
+}
+
+.small {
+  padding-bottom: 4px;
+  position: relative;
+  text-decoration: none;
+  font-family: "Caviar Dreams", sans-serif;
+}
+
+.div_small::after {
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: -15px;
+  height: 2px;
+  width: 100%;
+}
+
+.h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.liste {
+  max-width: 45%;
+  margin-bottom: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.nom_liste {
+  border: solid 2px white;
+  margin-bottom: 5px;
+  background: grey;
+}
+
+.nom_liste_lien {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nom_liste_lien:hover {
+  color: white;
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.bouton {
+  color: white;
+  background: black;
+  height: 50px;
+  width: 20%;
+  border-radius: 15px;
+  border: solid 2px white;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.bouton:hover {
+  color: black;
+  background: white;
+  height: 50px;
+  border-radius: 15px;
+  border: solid 2px black;
+}
+
+.btn_annuler {
+  color: white;
+  border: solid 2px white;
+  border-radius: 15px;
+  padding: 10px 20px 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.btn_annuler:hover {
+  color: black;
+  background: white;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+
+.li_urgent {
+  gap: 10px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-inline-start: 0px;
+}
+
+.boutons_form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.form_ajouter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nom_liste_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 325px) {
+  .small {
+    top: -10px;
+    left: -15px;
+  }
+  .bouton {
+    width: 125px;
+  }
+}
 
 /*# sourceMappingURL=styles_benjamin.css.map */
