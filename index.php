@@ -110,9 +110,23 @@ if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
 </form>
 <ul class="ul">
     <?php for($cptNom = 0; $cptNom < count($arrInfosListes); $cptNom++){ ?>
-        <div class="liste">
-            <div class="nom_liste" style="background: #<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>">
-                <h3 class="nom_liste_h3"><a class="nom_liste_lien" href="maj/index.php"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
+            <div class="liste">
+                <div class="nom_liste" style="background: #<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>">
+                    <h3 class="nom_liste_h3"><a class="nom_liste_lien" href="liste/index.php?id_liste=<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>"><?php echo $arrInfosListes[$cptNom]['nom_liste']; ?></a></h3>
+                </div>
+                <form action="maj/index.php" method="get">
+                    <li> <?php echo "Liste #" .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
+                    <li> <?php echo "Code de couleur hexadécimale : " . $arrInfosListes[$cptNom]['hexadecimale']; ?> </li>
+                    <li> <?php echo "Nombre d'items de la liste : " . $arrInfosListes[$cptNom]['nombre_item']; ?> </li>
+                    <input type="text" name="id_liste" id="id_liste" value="<?php echo $arrInfosListes[$cptNom]['id_liste']; ?>" hidden>
+                    <input type="text" name="nom_liste" id="nom_liste" value="<?php echo $arrInfosListes[$cptNom]['nom_liste']; ?>" hidden>
+                    <input type="text" name="hexadecimale" id="hexadecimale" value="<?php echo $arrInfosListes[$cptNom]['hexadecimale']; ?>" hidden>
+                    <input type="text" name="id_couleur" id="id_couleur" value="<?php echo $arrInfosListes[$cptNom]['id_couleur']; ?>" hidden>
+                    <div class="boutons_form">
+                        <input type="submit" value="Modifier" name="btn_modifier" class="bouton">
+                        <input type="submit" value="Supprimer" name="btn_supprimer" class="bouton">
+                    </div>
+                </form>
             </div>
             <form action="maj/index.php" method="get">
                 <li> <?php echo "Liste #" .  $arrInfosListes[$cptNom]['id_liste']; ?> </li>
