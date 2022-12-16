@@ -1,16 +1,19 @@
 /* Projet TodoList */
 /* @author : Clodiane Charette */
+const inputJour = document.getElementById("jour");
+const inputMois = document.getElementById("mois");
+const inputAnnee = document.getElementById("annee");
 
 const objFormulaire = {
+
     initialiser: function () {
-        document.getElementById("")
+        inputJour.style.display = "none";
+        inputMois.style.display = "none";
+        inputAnnee.style.display = "none";
     }
 }
 
 function hideShowEcheance(etat) {
-    const inputJour = document.getElementById("jour");
-    const inputMois = document.getElementById("mois");
-    const inputAnnee = document.getElementById("annee");
     if(etat == 1){
         document.getElementById("echeanceOnOff").value = 0;
         document.getElementById("echeanceOnOff").classList.remove("echeanceOff");

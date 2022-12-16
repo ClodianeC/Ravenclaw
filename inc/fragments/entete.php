@@ -27,6 +27,10 @@ $pdosResultatListes->closeCursor();
 <div class="header">
     <div class="topEntete">
         <p class="bienvenue">Bienvenue <?php echo $nomUtilisateur ?></p>
+        <form class="recherche" action="<?php echo $niveau ?>index.php" method="get">
+            <input type="text" name="search" id="search" class="inputRecherche">
+            <button type="submit" class="buttonSearch" id="buttonSearch"><div class="icon"></div><p>Rechercher</p></button>
+        </form>
         <div class="boutonsEntete">
             <a href="" class="icon_header" id="compte"><div class="icon" ></div><p>Mon compte</p></a>
             <a href="" class="icon_header" id="deconnexion"><div class="icon"></div><p>Déconnexion</p></a>

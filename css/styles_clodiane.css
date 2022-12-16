@@ -521,11 +521,43 @@ abbr[title]:hover {
 }
 
 .icon_header .icon,
-.retour .icon {
+.retour .icon,
+.buttonSearch .icon {
   background-image: url(../img/images/sprite-icons.png);
   display: inline-block;
   width: 50px;
   height: 50px;
+}
+
+.buttonSearch .icon {
+  background-position: 0px 200px;
+}
+
+.buttonSearch:hover .icon,
+.buttonSearch:active .icon {
+  background-position: 50px 200px;
+}
+
+.buttonSearch p {
+  margin: 0.3rem 0;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+}
+
+.buttonSearch:hover p,
+.buttonSearch:active p {
+  text-decoration: #FFFFFF underline solid 1px;
+}
+
+.buttonSearch {
+  background-color: #000000;
+  border: none;
+}
+
+.recherche {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .icon_header:link#compte .icon,
@@ -1010,11 +1042,12 @@ body {
 .nomForm,
 .jourForm,
 .moisForm,
-.anneeForm {
+.anneeForm,
+.inputRecherche {
   color: #FFFFFF;
   background-color: #000000;
   border: solid #FFFFFF 3px;
-  height: 50px;
+  height: 40px;
 }
 
 .completionForm,
