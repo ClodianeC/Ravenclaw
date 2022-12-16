@@ -19,8 +19,8 @@ if ($blnLocal) {
     error_reporting(E_ALL);
 } else {
     $strHost = 'timunix2.cegep-ste-foy.qc.ca';
-    $strBD='todo';
-    $strUser = 'ravenclaw';
+    $strBD='22_ravenclaw';
+    $strUser = '22_ravenclaw';
     $strPassword = 'walcnevar';
     error_reporting(E_ALL & ~E_NOTICE);
 }

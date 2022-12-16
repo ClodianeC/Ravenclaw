@@ -890,10 +890,8 @@ body {
 .bouton:active,
 .lienBouton:hover,
 .lienBouton:active {
-  color: #ABABAB;
-  border-color: #ABABAB;
-  width: 330px;
-  height: 75px;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .buttonDelete,

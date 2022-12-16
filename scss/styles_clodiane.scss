@@ -356,10 +356,8 @@ body{
 .bouton:active,
 .lienBouton:hover,
 .lienBouton:active{
-  color: $gPale;
-  border-color: $gPale;
-  width: 330px;
-  height: 75px;
+  color: $noir;
+  background-color: $blanc;
 }
 .buttonDelete,
 .buttonEdit{
