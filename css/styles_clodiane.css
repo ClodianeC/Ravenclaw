@@ -548,9 +548,9 @@ body {
 ========================================================================== */
 .topEntete {
   display: flex;
-  position: fixed;
+  position: absolute;
   left: -110%;
-  top: 5rem;
+  top: 7rem;
   margin: 1.5rem 0 0 0;
   z-index: 100;
   flex-direction: column;
@@ -567,12 +567,15 @@ body {
 }
 
 .hamburger {
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .hamburger.active {
-  display: block;
+  display: flex;
   cursor: pointer;
 }
 
