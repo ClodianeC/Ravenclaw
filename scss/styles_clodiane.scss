@@ -98,6 +98,9 @@
       .hamburger{
         display: none;
       }
+      .topEntete{
+        left: 0;
+      }
     }
     /*** Top Entête
       ========================================================================== */
@@ -121,11 +124,10 @@
     /*** Logo/Lien accueil
     ========================================================================== */
     .lienAccueil{
-      line-height: 0;
+      line-height: 150%;
       text-decoration: none;
       display: inline-block;
-      margin-left: 20%;
-      margin-bottom: 5rem;
+      margin: 0 1rem 5rem 1rem;
       z-index: 0;
       position: relative;
     }
@@ -150,15 +152,58 @@
       margin-top: 6rem;
     }
     .titre01{
-      font-size: 12rem;
+      font-size: 7rem;
     }
     .titre02{
-      font-size: 4rem;
+      font-size: 3rem;
     }
     .slogan{
-      font-size: 2.8rem;
+      font-size: 2rem;
+      margin-top: 1rem;
       color: $blanc;
-      padding-left: 10rem;
+      padding-left: 2.5rem;
+    }
+    @media(min-width: 800px) {
+      .lienAccueil{
+        line-height: 0;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 20%;
+        margin-bottom: 5rem;
+        z-index: 0;
+        position: relative;
+      }
+      .lienAccueil:link .titre01,
+      .lienAccueil:link .titre02,
+      .lienAccueil:visited .titre01,
+      .lienAccueil:visited .titre02{
+        color: $blanc;
+        text-decoration: underline $blanc solid 4px;
+      }
+      .lienAccueil:hover .titre01,
+      .lienAccueil:hover .titre02,
+      .lienAccueil:active .titre01,
+      .lienAccueil:active .titre02{
+        color: $gPale;
+        text-decoration: underline $gPale solid 4px;
+      }
+      .titre01,
+      .titre02{
+        display: inline-block;
+        margin-bottom: 0;
+        margin-top: 6rem;
+      }
+      .titre01{
+        font-size: 12rem;
+      }
+      .titre02{
+        font-size: 4rem;
+      }
+      .slogan{
+        font-size: 2.8rem;
+        color: $blanc;
+        padding-left: 10rem;
+      }
     }
     /*** Section Listes
     ========================================================================== */
@@ -178,12 +223,11 @@
       margin: 1rem;
     }
     .itemListeEntete{
-      display: inline-block;
+      display: block;
       padding: 0 1rem;
     }
     .listeLiensEntete{
-      display: flex;
-      flex-wrap: wrap;
+      display: block;
       justify-content: space-between;
     }
     .lienListeEntete:link,
@@ -194,6 +238,17 @@
     .lienListeEntete:active{
       color: $gPale;
       font-size: 1.7rem;
+    }
+    @media(min-width: 800px) {
+      .itemListeEntete{
+        display: inline-block;
+        padding: 0 1rem;
+      }
+      .listeLiensEntete{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
 
   /** Footer
