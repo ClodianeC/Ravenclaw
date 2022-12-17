@@ -340,7 +340,7 @@ if($strCodeOperation=="Modification-complete" || $strCodeOperation=="Ajout-compl
                                 <option value="01">2022</option>
                             </select>
                         </div>
-                        <button type="button"  name='echeanceOnOff' id='echeanceOnOff' value=0 class="bouton echeanceOn boutonEcheance">Ne pas mettre d'échéance</button>
+                        <button type="button"  name='echeanceOnOff' id='echeanceOnOff' value=0 class="bouton echeanceOn boutonEcheance">Ajouter une échéance</button>
                     </fieldset>
                 </div>
                 <div class="boutonsForm">

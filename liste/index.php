@@ -119,7 +119,7 @@ $pdosResultatItems->closeCursor();
 </head>
 <main>
     <?php include($niveau."inc/fragments/entete.php"); ?>
-    <a href="../index.php" id="retourAccueil" class="retour"><div class="icon"></div><p>Retour à l'accueil</p></a>
+    <a href="../index.php" id="retourAccueil" class="retour boutonIcone"><div class="icon"></div><p>Retour à l'accueil</p></a>
     <h1 class="h1 h1Liste <?php echo $strCouleurListe ?>"><?php echo $arrListe["nom"]?></h1>
     <p class="message"><?php echo $strMessage ?></p>
     <form action="creer_modifier/index.php" method="get">
@@ -150,12 +150,12 @@ $pdosResultatItems->closeCursor();
             echo "<form action='creer_modifier/index.php' method='get'>
                   <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
                   <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
-                  <button type='submit' name='edit' value='edit' class='buttonEdit'><div class='icon'></div><p>Éditer</p></button>
+                  <button type='submit' name='edit' value='edit' class='buttonEdit boutonIcone'><div class='icon'></div><p>Éditer</p></button>
                   </form>";
             echo "<form action='index.php' method='get'>
                      <input type='text' hidden name='id_liste' id='id_liste' value='$idListeActu'>
                      <input type='text' hidden name='id_item' id='id_item' value='$id_item'>
-                     <button type='submit' name='delete' value='delete' class='buttonDelete'><div class='icon'></div><p>Supprimer</p></button>
+                     <button type='submit' name='delete' value='delete' class='buttonDelete boutonIcone'><div class='icon'></div><p>Supprimer</p></button>
                   </form>";
             echo "</div>";
             echo "</li>";

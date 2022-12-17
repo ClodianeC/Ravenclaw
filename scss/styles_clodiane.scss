@@ -25,535 +25,479 @@
 
 /* Mise en page
    ========================================================================== */
+  /** Général
+      ========================================================================== */
+  body{
+    background-color: $noir;
+  }
+  .h1Liste{
+    text-align: center;
+  }
+  .h2Liste,
+  .avertissement,
+  .message{
+    color: $blanc;
+  }
+  .avertissement,
+  .h2Liste{
+     margin-left: 3rem;
+  }
 
-/** Entête
+  /** Entête
     ========================================================================== */
-.bienvenue{
-  color: $blanc;
-  font-family: "Caviar Dreams";
-  font-size: 2rem;
-}
-.icon_header{
-  font-size: 1.3rem;
-  margin: 1rem;
-  color: $blanc;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.icon_header p{
-  margin: 0.3rem 0;
-}
-.icon_header .icon,
-.retour .icon,
-.buttonSearch .icon{
-  background-image: url(../img/images/sprite-icons.png);
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-}
-.buttonSearch .icon{
-  background-position: 0px 200px;
-}
-.buttonSearch:hover .icon,
-.buttonSearch:active .icon{
-  background-position: 50px 200px;
-}
-.buttonSearch p{
-  margin: 0.3rem 0;
-  font-size: 1.3rem;
-  color: $blanc;
-}
-.buttonSearch:hover p,
-.buttonSearch:active p{
-  text-decoration: $blanc underline solid 1px;
-}
-.buttonSearch{
-  background-color: $noir;
-  border: none;
-}
-.recherche{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.icon_header:link#compte .icon,
-.icon_header:visited#compte .icon{
-  background-position: 0px 0px;
-}
-.icon_header:hover#compte .icon,
-.icon_header:active#compte .icon{
-  background-position: 50px 0px;
-  color: red;
-}
-.icon_header:link,
-.icon_header:visited{
-  text-decoration: none;
-}
-.icon_header:hover,
-.icon_header:active{
-  text-decoration: underline $blanc 1px solid;
-}
-.icon_header:link#deconnexion .icon,
-.icon_header:visited#deconnexion .icon{
-  background-position: 0px 50px;
-}
-.icon_header:hover#deconnexion .icon,
-.icon_header:active#deconnexion .icon{
-  background-position: 50px 50px;
-  color: red;
-}
-.titre01{
-  font-size: 12rem;
-}
-.slogan{
-  font-size: 2.8rem;
-}
-.header{
-  background-color: $noir;
-  border: $blanc solid 3px;
-}
-.itemListeEntete{
-  display: inline-block;
-  padding: 0 1rem;
-}
-.lienListeEntete:link,
-.lienListeEntete:visited{
-  color: $blanc;
-}
-.lienListeEntete:hover,
-.lienListeEntete:active{
-  color: $gPale;
-  font-size: 1.7rem;
-}
-.listeLiensEntete{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.lienAccueil{
-  line-height: 0;
-  text-decoration: none;
-  display: inline-block;
-  margin-left: 20%;
-  margin-bottom: 5rem;
-}
-.lienAccueil:link .titre01,
-.lienAccueil:link .titre02,
-.lienAccueil:visited .titre01,
-.lienAccueil:visited .titre02{
-  color: $blanc;
-  text-decoration: underline $blanc solid 4px;
-}
-.lienAccueil:hover .titre01,
-.lienAccueil:hover .titre02,
-.lienAccueil:active .titre01,
-.lienAccueil:active .titre02{
-  color: $gPale;
-  text-decoration: underline $gPale solid 4px;
-}
-.titre01,
-.titre02{
-  display: inline-block;
-  margin-bottom: 0;
-  margin-top: 6rem;
-}
-.slogan{
-  color: $blanc;
-  padding-left: 10rem;
-}
-
-.titre02{
-  font-size: 4rem;
-}
-.lienAjouterListe{
-  display: block;
- }
-.titreEnteteListe{
-  color: $blanc;
-  font-size: 3rem;
-  text-align: center;
-  margin: 1.5rem auto;
-  font-family: "Caviar Dreams";
-}
-.listesEntete{
-  border: $blanc solid 3px;
-  margin: 1rem;
-}
-.lienAjouterListe{
-  margin: 2.5rem auto;
-}
-.topEntete{
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem;
-}
-.boutonsEntete{
-  display: flex;
-}
-.header{
-  margin: 0 0 3rem 0;
-}
-
-/** Footer
+  .header{
+    margin: 0 0 3rem 0;
+    background-color: $noir;
+    border: $blanc solid 3px;
+  }
+    /*** Top Entête
+      ========================================================================== */
+    .topEntete{
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem;
+    }
+    .bienvenue{
+      color: $blanc;
+      font-family: "Caviar Dreams";
+      font-size: 2rem;
+    }
+    .recherche{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .boutonsEntete{
+      display: flex;
+    }
+    /*** Logo/Lien accueil
     ========================================================================== */
-.inspiration,
-.inspi,
-.droits{
-  color: $blanc;
-}
-.footer{
-  background-color: $noir;
-  border: $blanc solid 3px;
-}
-.droits{
-  font-size: 1.2rem;
-  text-align: center;
-  margin: 5rem auto 2rem auto;
-}
-.inspiration{
-  margin: 1.5rem 2.5rem;
-}
-.liste-inspi{
-  display: inline-flex;
-  flex-direction: column;
-}
-.img_footer{
-  max-width: 400px;
-}
-.infos_footer{
-  display: flex;
-  justify-content: space-around;
-}
-footer{
-  margin: 3rem 0 0 0;
-}
-
-/** Général
+    .lienAccueil{
+      line-height: 0;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: 20%;
+      margin-bottom: 5rem;
+    }
+    .lienAccueil:link .titre01,
+    .lienAccueil:link .titre02,
+    .lienAccueil:visited .titre01,
+    .lienAccueil:visited .titre02{
+      color: $blanc;
+      text-decoration: underline $blanc solid 4px;
+    }
+    .lienAccueil:hover .titre01,
+    .lienAccueil:hover .titre02,
+    .lienAccueil:active .titre01,
+    .lienAccueil:active .titre02{
+      color: $gPale;
+      text-decoration: underline $gPale solid 4px;
+    }
+    .titre01,
+    .titre02{
+      display: inline-block;
+      margin-bottom: 0;
+      margin-top: 6rem;
+    }
+    .titre01{
+      font-size: 12rem;
+    }
+    .titre02{
+      font-size: 4rem;
+    }
+    .slogan{
+      font-size: 2.8rem;
+      color: $blanc;
+      padding-left: 10rem;
+    }
+    /*** Section Listes
     ========================================================================== */
-body{
-  background-color: $noir;
-}
-.h1Liste{
-  color: $noir;
-  background-color: $gTPale;
-  text-align: center;
-}
-.h2Liste,
-.avertissement,
-.message{
-  color: $blanc;
-}
-.retour{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.3rem;
-}
-.retour p{
-  margin: 0.3rem;
-}
-.retour:link,
-.retour:visited{
-  text-decoration: none;
-  color: $blanc;
-}
-.retour:hover,
-.retour:active{
-  text-decoration: underline $blanc solid 1px;
-  color: $blanc;
-}
-.retour:link .icon,
-.retour:visited .icon{
-  background-position: 0px 250px;
-}
-.retour:hover .icon,
-.retour:active .icon{
-  background-position: 50px 250px;
-}
-.avertissement,
-.h2Liste{
-  margin-left: 3rem;
-}
+    .titreEnteteListe{
+      color: $blanc;
+      font-size: 3rem;
+      text-align: center;
+      margin: 1.5rem auto;
+      font-family: "Caviar Dreams";
+    }
+    .lienAjouterListe{
+      margin: 2.5rem auto;
+      display: block;
+    }
+    .listesEntete{
+      border: $blanc solid 3px;
+      margin: 1rem;
+    }
+    .itemListeEntete{
+      display: inline-block;
+      padding: 0 1rem;
+    }
+    .listeLiensEntete{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .lienListeEntete:link,
+    .lienListeEntete:visited{
+      color: $blanc;
+    }
+    .lienListeEntete:hover,
+    .lienListeEntete:active{
+      color: $gPale;
+      font-size: 1.7rem;
+    }
 
-/** Item de liste
-    ========================================================================== */
-.liste,
-.listeCouleur{
-  list-style: none;
-}
-.radioCouleur{
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-}
-.itemListe{
-  background-color: $noir;
-  border: $blanc solid 3px;
-  color: $blanc;
-}
-.cercleCouleur.aleatoire{
-  background-color: $noir;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.blanc{
-  background-color: $blanc;
-  color: $noir;
-}
-.cercleCouleur.blanc{
-  background-color: $blanc;
-  width: 100px;
-  height: 100px;
-  border: $gFonce solid 3px;
-  border-radius: 50%;
-}
-.gtpale{
-  background-color: $gTPale;
-  color: $noir;
-}
-.cercleCouleur.gtpale{
-  background-color: $gTPale;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.gpale{
-  background-color: $gPale;
-  color: $noir;
-}
-.cercleCouleur.gpale{
-  background-color: $gPale;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.gmoyen{
-  background-color: $gMoyen;
-  color: $noir;
-}
-.cercleCouleur.gmoyen{
-  background-color: $gMoyen;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.gfonce{
-  background-color: $gFonce;
-  color: $blanc;
-}
-.cercleCouleur.gfonce{
-  background-color: $gFonce;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.gtfonce{
-  background-color: $gTFonce;
-  color: $blanc;
-}
-.cercleCouleur.gtfonce{
-  background-color: $gTFonce;
-  width: 100px;
-  height: 100px;
-  border: $blanc solid 3px;
-  border-radius: 50%;
-}
-.bouton,
-.lienBouton{
-  color: $blanc;
-  text-decoration: none;
-  background-color: $noir;
-  border: $blanc solid 3px;
-  width: 315px;
-  height: 70px;
-  font-size: 3rem;
-  display: block;
-  text-align: center;
-  line-height: 60px;
-}
-.bouton:hover,
-.bouton:active,
-.lienBouton:hover,
-.lienBouton:active{
-  color: $noir;
-  background-color: $blanc;
-}
-.buttonDelete,
-.buttonEdit{
-  background-color: $noir;
-  color: $blanc;
-  border: none;
-}
-.buttonDelete .icon,
-.buttonEdit .icon{
-  background-image: url(../img/images/sprite-icons.png);
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-}
-.buttonDelete p,
-.buttonEdit p{
-  text-decoration: none}
-.buttonDelete:hover p,
-.buttonDelete:active p,
-.buttonEdit:hover p,
-.buttonEdit:active p{
-  text-decoration: underline $blanc solid 1px;
-}
-.buttonDelete .icon{
-  background-position: 0px 100px;
-}
-.buttonDelete:hover .icon,
-.buttonDelete:active .icon{
-  background-position: 50px 100px;
-}
-.buttonEdit .icon{
-  background-position: 0px 150px;
-}
-.buttonEdit:hover .icon,
-.buttonEdit:active .icon{
-  background-position: 50px 150px;
-}
-.buttonDelete p,
-.buttonEdit p{
-  font-size: 1.3rem;
-  margin: 0.3rem;
-}
-.boutonsItems{
-  display: flex;
-}
-.liste{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0;
-}
-.itemListe{
-  display: inline-flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 3rem 4rem 3rem;
-}
-.boutonsItems{
-  align-self: flex-end;
-  margin: 1rem 3rem;
-}
-.h2Item{
-  padding: 0.5rem 2rem;
-  margin-bottom: 1.2rem;
-}
-.date,
-.completion{
-  margin: 1rem 3rem;
-}
-.buttonAdd{
-  margin: 3rem auto;
-}
+  /** Footer
+      ========================================================================== */
+  footer{
+    margin: 3rem 0 0 0;
+    background-color: $noir;
+    border: $blanc solid 3px;
+  }
+  .inspiration,
+  .inspi,
+  .droits{
+    color: $blanc;
+  }
+  .droits{
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 5rem auto 2rem auto;
+  }
+  .inspiration{
+    margin: 1.5rem 2.5rem;
+  }
+  .liste-inspi{
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .img_footer{
+    max-width: 280px;
+    margin: auto;
+  }
+  .infos_footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  @media(min-width: 800px){
+    .img_footer{
+      max-width: 400px;
+      margin: 0;
+    }
+    .infos_footer{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
 
-/** Formulaire
-    ========================================================================== */
-.formulaireItem{
-  color: $blanc;
-}
-.label{
-  display: block;
-}
-.echeanceOff,
-.echeanceOn{
-  font-size: 2.2rem;
-}
-.fieldsetDate{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  border: none;
-}
-.completionForm,
-.nomForm,
-.jourForm,
-.moisForm,
-.anneeForm,
-.inputRecherche{
-  color: $blanc;
-  background-color: $noir;
-  border: solid $blanc 3px;
-  height: 40px;
-}
-.completionForm,
-.nomForm{
-  width: 250px;
-}
-.moisForm{
-  width: 120px;
-}
-.jourForm, {
-  width: 50px;
-}
-.anneeForm{
-  width: 70px;
-}
-.jourForm,
-.moisForm,
-.anneeForm{
-  margin-right: 1rem;
-  margin-bottom: 2rem;
-}
-.listeCouleur{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0;
-}
-.fieldset_couleur{
-  padding: 0;
-  border: none;
-  margin: 3rem auto;
-  max-width: 1000px;
-}
-.conteneurForm{
-  margin: 3rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+  /** Items interractifs
+      ========================================================================== */
+    /*** Boutons
+        ========================================================================== */
+    .bouton,
+    .lienBouton{
+      color: $blanc;
+      text-decoration: none;
+      background-color: $noir;
+      border: $blanc solid 3px;
+      width: 315px;
+      height: 70px;
+      font-size: 3rem;
+      display: block;
+      text-align: center;
+      line-height: 60px;
+    }
+    .bouton:hover,
+    .bouton:active,
+    .lienBouton:hover,
+    .lienBouton:active{
+      color: $noir;
+      background-color: $blanc;
+    }
+    /*** Boutons icônes
+        ========================================================================== */
+    .icon_header .icon,
+    .retour .icon,
+    .buttonSearch .icon,
+    .buttonDelete .icon,
+    .buttonEdit .icon{
+      background-image: url(../img/images/sprite-icon.png);
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+    .icon_header,
+    .buttonDelete p,
+    .buttonEdit p,
+    .retour{
+      font-size: 1.3rem;
+      margin: 1rem;
+      color: $blanc;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .retour{
+      display: inline-flex;
+    }
+    .icon+p{
+      margin: 0.3rem 0;
+      font-size: 1.3rem;
+      color: $blanc;
+    }
+    .boutonIcone:hover p,
+    .boutonIcone:active p{
+      text-decoration: $blanc underline solid 1px;
+    }
+    .buttonDelete,
+    .buttonEdit,
+    .buttonSearch{
+      background-color: $noir;
+      color: $blanc;
+      border: none;
+    }
+    /*** Position Icônes
+        ========================================================================== */
+      /**** Retour
+          ========================================================================== */
+      .retour:link .icon,
+      .retour:visited .icon{
+        background-position: 0px 250px;
+      }
+      .retour:hover .icon,
+      .retour:active .icon{
+        background-position: 50px 250px;
+      }
+      /**** Recherche
+          ========================================================================== */
+      .buttonSearch .icon{
+        background-position: 0px 200px;
+      }
+      .buttonSearch:hover .icon,
+      .buttonSearch:active .icon{
+        background-position: 50px 200px;
+      }
+      /**** Compte
+          ========================================================================== */
+      .icon_header:link#compte .icon,
+      .icon_header:visited#compte .icon{
+        background-position: 0px 0px;
+      }
+      .icon_header:hover#compte .icon,
+      .icon_header:active#compte .icon{
+        background-position: 50px 0px;
+      }
+      /**** Déconnexion
+          ========================================================================== */
+      .icon_header:link#deconnexion .icon,
+      .icon_header:visited#deconnexion .icon{
+        background-position: 0px 50px;
+      }
+      .icon_header:hover#deconnexion .icon,
+      .icon_header:active#deconnexion .icon{
+        background-position: 50px 50px;
+      }
+      /**** Delete
+          ========================================================================== */
+      .buttonDelete .icon{
+        background-position: 0px 100px;
+      }
+      .buttonDelete:hover .icon,
+      .buttonDelete:active .icon{
+        background-position: 50px 100px;
+      }
+      /**** Edit
+          ========================================================================== */
+      .buttonEdit .icon{
+        background-position: 0px 150px;
+      }
+      .buttonEdit:hover .icon,
+      .buttonEdit:active .icon{
+        background-position: 50px 150px;
+      }
 
-.choix_couleur{
-  text-align: center;
-  margin: 1rem;
-}
-.boutonsForm{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.buttonAjouter,
-.buttonModifier,
-.buttonAnnuler,
-.buttonRetour,
-.conteneurNom,
-.conteneurCompletion,
-.fieldsetDate{
-  margin: 1rem;
-}
+  /** Formulaire
+      ========================================================================== */
+  .formulaireItem{
+    color: $blanc;
+  }
+  .label{
+    display: block;
+  }
+  .fieldsetDate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: none;
+  }
+  .listeCouleur,
+  .conteneurForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .listeCouleur{
+    padding: 0;
+  }
+  .conteneurForm{
+    margin: 3rem;
+    flex-direction: row;
+  }
+  .fieldset_couleur{
+    padding: 0;
+    border: none;
+    margin: 3rem auto;
+    max-width: 1000px;
+  }
+    /*** Boutons formulaire
+        ========================================================================== */
+    .buttonAjouter,
+    .buttonModifier,
+    .buttonAnnuler,
+    .buttonRetour,
+    .conteneurNom,
+    .conteneurCompletion,
+    .fieldsetDate{
+      margin: 1rem;
+    }
+    .boutonsForm{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .bouton.echeanceOff,
+    .bouton.echeanceOn{
+      font-size: 2.2rem;
+    }
+    /*** Style champs formulaire
+        ========================================================================== */
+    .completionForm,
+    .nomForm,
+    .jourForm,
+    .moisForm,
+    .anneeForm,
+    .inputRecherche{
+      color: $blanc;
+      background-color: $noir;
+      border: solid $blanc 3px;
+      height: 40px;
+    }
+    .jourForm,
+    .moisForm,
+    .anneeForm{
+      margin-right: 1rem;
+      margin-bottom: 2rem;
+    }
+    .completionForm,
+    .nomForm{
+      width: 250px;
+    }
+    .moisForm{
+      width: 120px;
+    }
+    .jourForm, {
+      width: 50px;
+    }
+    .anneeForm{
+      width: 70px;
+    }
+    /*** Boutons radio couleur
+        ========================================================================== */
+    .choix_couleur{
+      text-align: center;
+      margin: 1rem;
+    }
+    .radioCouleur{
+      position: fixed;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .cercleCouleur{
+      width: 100px;
+      height: 100px;
+      border: $blanc solid 3px;
+      border-radius: 50%;
+    }
+    .gtpale,
+    .blanc,
+    .gpale,
+    .gmoyen{
+      color: $noir;
+    }
+    .gfonce,
+    .gtfonce{
+      color: $blanc;
+    }
+    .blanc{
+      background-color: $blanc;
+    }
+    .cercleCouleur.blanc{
+      border-color: $gFonce;
+    }
+    .gtpale{
+      background-color: $gTPale;
+    }
+    .gpale{
+      background-color: $gPale;
+    }
+    .gmoyen{
+      background-color: $gMoyen;
+    }
+    .gfonce{
+      background-color: $gFonce;
+    }
+    .gtfonce{
+      background-color: $gTFonce;
+    }
+    .cercleCouleur.aleatoire{
+      background-color: $noir;
+    }
+    [type=radio]:hover+label div,
+    [type=radio]:focus+label div{
+      border-width: 8px;
+    }
+    [type=radio]:checked+label div{
+      border-width: 8px;
+    }
 
-
-
-/** Bouton radio
-    ========================================================================== */
-[type=radio]:hover+label div,
-[type=radio]:focus+label div{
-  border-width: 8px;
-}
-[type=radio]:checked+label div{
-  border-width: 8px;
-}
+  /** Item de liste
+  ========================================================================== */
+  .liste,
+  .listeCouleur{
+    list-style: none;
+  }
+  .liste{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+  }
+  .itemListe{
+    display: inline-flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 3rem 4rem 3rem;
+    background-color: $noir;
+    border: $blanc solid 3px;
+    color: $blanc;
+  }
+  .h2Item{
+    padding: 0.5rem 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .boutonsItems{
+    display: flex;
+    align-self: flex-end;
+    margin: 1rem 3rem;
+  }
+  .date,
+  .completion{
+    margin: 1rem 3rem;
+  }
+  .buttonAdd{
+    margin: 3rem auto;
+  }

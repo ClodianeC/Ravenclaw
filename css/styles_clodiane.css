@@ -499,59 +499,47 @@ abbr[title]:hover {
 
 /* Mise en page
    ========================================================================== */
-/** Entête
+/** Général
     ========================================================================== */
+body {
+  background-color: #000000;
+}
+
+.h1Liste {
+  text-align: center;
+}
+
+.h2Liste,
+.avertissement,
+.message {
+  color: #FFFFFF;
+}
+
+.avertissement,
+.h2Liste {
+  margin-left: 3rem;
+}
+
+/** Entête
+  ========================================================================== */
+.header {
+  margin: 0 0 3rem 0;
+  background-color: #000000;
+  border: #FFFFFF solid 3px;
+}
+
+/*** Top Entête
+  ========================================================================== */
+.topEntete {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
 .bienvenue {
   color: #FFFFFF;
   font-family: "Caviar Dreams";
   font-size: 2rem;
-}
-
-.icon_header {
-  font-size: 1.3rem;
-  margin: 1rem;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.icon_header p {
-  margin: 0.3rem 0;
-}
-
-.icon_header .icon,
-.retour .icon,
-.buttonSearch .icon {
-  background-image: url(../img/images/sprite-icons.png);
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-}
-
-.buttonSearch .icon {
-  background-position: 0px 200px;
-}
-
-.buttonSearch:hover .icon,
-.buttonSearch:active .icon {
-  background-position: 50px 200px;
-}
-
-.buttonSearch p {
-  margin: 0.3rem 0;
-  font-size: 1.3rem;
-  color: #FFFFFF;
-}
-
-.buttonSearch:hover p,
-.buttonSearch:active p {
-  text-decoration: #FFFFFF underline solid 1px;
-}
-
-.buttonSearch {
-  background-color: #000000;
-  border: none;
 }
 
 .recherche {
@@ -560,73 +548,12 @@ abbr[title]:hover {
   align-items: center;
 }
 
-.icon_header:link#compte .icon,
-.icon_header:visited#compte .icon {
-  background-position: 0px 0px;
-}
-
-.icon_header:hover#compte .icon,
-.icon_header:active#compte .icon {
-  background-position: 50px 0px;
-  color: red;
-}
-
-.icon_header:link,
-.icon_header:visited {
-  text-decoration: none;
-}
-
-.icon_header:hover,
-.icon_header:active {
-  text-decoration: underline #FFFFFF 1px solid;
-}
-
-.icon_header:link#deconnexion .icon,
-.icon_header:visited#deconnexion .icon {
-  background-position: 0px 50px;
-}
-
-.icon_header:hover#deconnexion .icon,
-.icon_header:active#deconnexion .icon {
-  background-position: 50px 50px;
-  color: red;
-}
-
-.titre01 {
-  font-size: 12rem;
-}
-
-.slogan {
-  font-size: 2.8rem;
-}
-
-.header {
-  background-color: #000000;
-  border: #FFFFFF solid 3px;
-}
-
-.itemListeEntete {
-  display: inline-block;
-  padding: 0 1rem;
-}
-
-.lienListeEntete:link,
-.lienListeEntete:visited {
-  color: #FFFFFF;
-}
-
-.lienListeEntete:hover,
-.lienListeEntete:active {
-  color: #ABABAB;
-  font-size: 1.7rem;
-}
-
-.listeLiensEntete {
+.boutonsEntete {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
+/*** Logo/Lien accueil
+========================================================================== */
 .lienAccueil {
   line-height: 0;
   text-decoration: none;
@@ -658,19 +585,22 @@ abbr[title]:hover {
   margin-top: 6rem;
 }
 
-.slogan {
-  color: #FFFFFF;
-  padding-left: 10rem;
+.titre01 {
+  font-size: 12rem;
 }
 
 .titre02 {
   font-size: 4rem;
 }
 
-.lienAjouterListe {
-  display: block;
+.slogan {
+  font-size: 2.8rem;
+  color: #FFFFFF;
+  padding-left: 10rem;
 }
 
+/*** Section Listes
+========================================================================== */
 .titreEnteteListe {
   color: #FFFFFF;
   font-size: 3rem;
@@ -679,40 +609,50 @@ abbr[title]:hover {
   font-family: "Caviar Dreams";
 }
 
+.lienAjouterListe {
+  margin: 2.5rem auto;
+  display: block;
+}
+
 .listesEntete {
   border: #FFFFFF solid 3px;
   margin: 1rem;
 }
 
-.lienAjouterListe {
-  margin: 2.5rem auto;
+.itemListeEntete {
+  display: inline-block;
+  padding: 0 1rem;
 }
 
-.topEntete {
+.listeLiensEntete {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin: 2rem;
 }
 
-.boutonsEntete {
-  display: flex;
+.lienListeEntete:link,
+.lienListeEntete:visited {
+  color: #FFFFFF;
 }
 
-.header {
-  margin: 0 0 3rem 0;
+.lienListeEntete:hover,
+.lienListeEntete:active {
+  color: #ABABAB;
+  font-size: 1.7rem;
 }
 
 /** Footer
     ========================================================================== */
+footer {
+  margin: 3rem 0 0 0;
+  background-color: #000000;
+  border: #FFFFFF solid 3px;
+}
+
 .inspiration,
 .inspi,
 .droits {
   color: #FFFFFF;
-}
-
-.footer {
-  background-color: #000000;
-  border: #FFFFFF solid 3px;
 }
 
 .droits {
@@ -731,179 +671,31 @@ abbr[title]:hover {
 }
 
 .img_footer {
-  max-width: 400px;
+  max-width: 280px;
+  margin: auto;
 }
 
 .infos_footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
-footer {
-  margin: 3rem 0 0 0;
+@media (min-width: 800px) {
+  .img_footer {
+    max-width: 400px;
+    margin: 0;
+  }
+  .infos_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
-
-/** Général
+/** Items interractifs
     ========================================================================== */
-body {
-  background-color: #000000;
-}
-
-.h1Liste {
-  color: #000000;
-  background-color: #C9C9C9;
-  text-align: center;
-}
-
-.h2Liste,
-.avertissement,
-.message {
-  color: #FFFFFF;
-}
-
-.retour {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.3rem;
-}
-
-.retour p {
-  margin: 0.3rem;
-}
-
-.retour:link,
-.retour:visited {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-
-.retour:hover,
-.retour:active {
-  text-decoration: underline #FFFFFF solid 1px;
-  color: #FFFFFF;
-}
-
-.retour:link .icon,
-.retour:visited .icon {
-  background-position: 0px 250px;
-}
-
-.retour:hover .icon,
-.retour:active .icon {
-  background-position: 50px 250px;
-}
-
-.avertissement,
-.h2Liste {
-  margin-left: 3rem;
-}
-
-/** Item de liste
+/*** Boutons
     ========================================================================== */
-.liste,
-.listeCouleur {
-  list-style: none;
-}
-
-.radioCouleur {
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.itemListe {
-  background-color: #000000;
-  border: #FFFFFF solid 3px;
-  color: #FFFFFF;
-}
-
-.cercleCouleur.aleatoire {
-  background-color: #000000;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
-.blanc {
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-.cercleCouleur.blanc {
-  background-color: #FFFFFF;
-  width: 100px;
-  height: 100px;
-  border: #3B3B3B solid 3px;
-  border-radius: 50%;
-}
-
-.gtpale {
-  background-color: #C9C9C9;
-  color: #000000;
-}
-
-.cercleCouleur.gtpale {
-  background-color: #C9C9C9;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
-.gpale {
-  background-color: #ABABAB;
-  color: #000000;
-}
-
-.cercleCouleur.gpale {
-  background-color: #ABABAB;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
-.gmoyen {
-  background-color: #777777;
-  color: #000000;
-}
-
-.cercleCouleur.gmoyen {
-  background-color: #777777;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
-.gfonce {
-  background-color: #3B3B3B;
-  color: #FFFFFF;
-}
-
-.cercleCouleur.gfonce {
-  background-color: #3B3B3B;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
-.gtfonce {
-  background-color: #242424;
-  color: #FFFFFF;
-}
-
-.cercleCouleur.gtfonce {
-  background-color: #242424;
-  width: 100px;
-  height: 100px;
-  border: #FFFFFF solid 3px;
-  border-radius: 50%;
-}
-
 .bouton,
 .lienBouton {
   color: #FFFFFF;
@@ -926,33 +718,106 @@ body {
   background-color: #FFFFFF;
 }
 
-.buttonDelete,
-.buttonEdit {
-  background-color: #000000;
-  color: #FFFFFF;
-  border: none;
-}
-
+/*** Boutons icônes
+    ========================================================================== */
+.icon_header .icon,
+.retour .icon,
+.buttonSearch .icon,
 .buttonDelete .icon,
 .buttonEdit .icon {
-  background-image: url(../img/images/sprite-icons.png);
+  background-image: url(../img/images/sprite-icon.png);
   display: inline-block;
   width: 50px;
   height: 50px;
 }
 
+.icon_header,
 .buttonDelete p,
-.buttonEdit p {
+.buttonEdit p,
+.retour {
+  font-size: 1.3rem;
+  margin: 1rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   text-decoration: none;
 }
 
-.buttonDelete:hover p,
-.buttonDelete:active p,
-.buttonEdit:hover p,
-.buttonEdit:active p {
-  text-decoration: underline #FFFFFF solid 1px;
+.retour {
+  display: inline-flex;
 }
 
+.icon + p {
+  margin: 0.3rem 0;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+}
+
+.boutonIcone:hover p,
+.boutonIcone:active p {
+  text-decoration: #FFFFFF underline solid 1px;
+}
+
+.buttonDelete,
+.buttonEdit,
+.buttonSearch {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+}
+
+/*** Position Icônes
+    ========================================================================== */
+/**** Retour
+    ========================================================================== */
+.retour:link .icon,
+.retour:visited .icon {
+  background-position: 0px 250px;
+}
+
+.retour:hover .icon,
+.retour:active .icon {
+  background-position: 50px 250px;
+}
+
+/**** Recherche
+    ========================================================================== */
+.buttonSearch .icon {
+  background-position: 0px 200px;
+}
+
+.buttonSearch:hover .icon,
+.buttonSearch:active .icon {
+  background-position: 50px 200px;
+}
+
+/**** Compte
+    ========================================================================== */
+.icon_header:link#compte .icon,
+.icon_header:visited#compte .icon {
+  background-position: 0px 0px;
+}
+
+.icon_header:hover#compte .icon,
+.icon_header:active#compte .icon {
+  background-position: 50px 0px;
+}
+
+/**** Déconnexion
+    ========================================================================== */
+.icon_header:link#deconnexion .icon,
+.icon_header:visited#deconnexion .icon {
+  background-position: 0px 50px;
+}
+
+.icon_header:hover#deconnexion .icon,
+.icon_header:active#deconnexion .icon {
+  background-position: 50px 50px;
+}
+
+/**** Delete
+    ========================================================================== */
 .buttonDelete .icon {
   background-position: 0px 100px;
 }
@@ -962,6 +827,8 @@ body {
   background-position: 50px 100px;
 }
 
+/**** Edit
+    ========================================================================== */
 .buttonEdit .icon {
   background-position: 0px 150px;
 }
@@ -969,50 +836,6 @@ body {
 .buttonEdit:hover .icon,
 .buttonEdit:active .icon {
   background-position: 50px 150px;
-}
-
-.buttonDelete p,
-.buttonEdit p {
-  font-size: 1.3rem;
-  margin: 0.3rem;
-}
-
-.boutonsItems {
-  display: flex;
-}
-
-.liste {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0;
-}
-
-.itemListe {
-  display: inline-flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 3rem 4rem 3rem;
-}
-
-.boutonsItems {
-  align-self: flex-end;
-  margin: 1rem 3rem;
-}
-
-.h2Item {
-  padding: 0.5rem 2rem;
-  margin-bottom: 1.2rem;
-}
-
-.date,
-.completion {
-  margin: 1rem 3rem;
-}
-
-.buttonAdd {
-  margin: 3rem auto;
 }
 
 /** Formulaire
@@ -1025,11 +848,6 @@ body {
   display: block;
 }
 
-.echeanceOff,
-.echeanceOn {
-  font-size: 2.2rem;
-}
-
 .fieldsetDate {
   display: flex;
   flex-direction: column;
@@ -1038,6 +856,54 @@ body {
   border: none;
 }
 
+.listeCouleur,
+.conteneurForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.listeCouleur {
+  padding: 0;
+}
+
+.conteneurForm {
+  margin: 3rem;
+  flex-direction: row;
+}
+
+.fieldset_couleur {
+  padding: 0;
+  border: none;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+
+/*** Boutons formulaire
+    ========================================================================== */
+.buttonAjouter,
+.buttonModifier,
+.buttonAnnuler,
+.buttonRetour,
+.conteneurNom,
+.conteneurCompletion,
+.fieldsetDate {
+  margin: 1rem;
+}
+
+.boutonsForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.bouton.echeanceOff,
+.bouton.echeanceOn {
+  font-size: 2.2rem;
+}
+
+/*** Style champs formulaire
+    ========================================================================== */
 .completionForm,
 .nomForm,
 .jourForm,
@@ -1048,6 +914,13 @@ body {
   background-color: #000000;
   border: solid #FFFFFF 3px;
   height: 40px;
+}
+
+.jourForm,
+.moisForm,
+.anneeForm {
+  margin-right: 1rem;
+  margin-bottom: 2rem;
 }
 
 .completionForm,
@@ -1067,58 +940,70 @@ body {
   width: 70px;
 }
 
-.jourForm,
-.moisForm,
-.anneeForm {
-  margin-right: 1rem;
-  margin-bottom: 2rem;
-}
-
-.listeCouleur {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0;
-}
-
-.fieldset_couleur {
-  padding: 0;
-  border: none;
-  margin: 3rem auto;
-  max-width: 1000px;
-}
-
-.conteneurForm {
-  margin: 3rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
+/*** Boutons radio couleur
+    ========================================================================== */
 .choix_couleur {
   text-align: center;
   margin: 1rem;
 }
 
-.boutonsForm {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.radioCouleur {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.buttonAjouter,
-.buttonModifier,
-.buttonAnnuler,
-.buttonRetour,
-.conteneurNom,
-.conteneurCompletion,
-.fieldsetDate {
-  margin: 1rem;
+.cercleCouleur {
+  width: 100px;
+  height: 100px;
+  border: #FFFFFF solid 3px;
+  border-radius: 50%;
 }
 
-/** Bouton radio
-    ========================================================================== */
+.gtpale,
+.blanc,
+.gpale,
+.gmoyen {
+  color: #000000;
+}
+
+.gfonce,
+.gtfonce {
+  color: #FFFFFF;
+}
+
+.blanc {
+  background-color: #FFFFFF;
+}
+
+.cercleCouleur.blanc {
+  border-color: #3B3B3B;
+}
+
+.gtpale {
+  background-color: #C9C9C9;
+}
+
+.gpale {
+  background-color: #ABABAB;
+}
+
+.gmoyen {
+  background-color: #777777;
+}
+
+.gfonce {
+  background-color: #3B3B3B;
+}
+
+.gtfonce {
+  background-color: #242424;
+}
+
+.cercleCouleur.aleatoire {
+  background-color: #000000;
+}
+
 [type=radio]:hover + label div,
 [type=radio]:focus + label div {
   border-width: 8px;
@@ -1126,6 +1011,51 @@ body {
 
 [type=radio]:checked + label div {
   border-width: 8px;
+}
+
+/** Item de liste
+========================================================================== */
+.liste,
+.listeCouleur {
+  list-style: none;
+}
+
+.liste {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.itemListe {
+  display: inline-flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 3rem 4rem 3rem;
+  background-color: #000000;
+  border: #FFFFFF solid 3px;
+  color: #FFFFFF;
+}
+
+.h2Item {
+  padding: 0.5rem 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.boutonsItems {
+  display: flex;
+  align-self: flex-end;
+  margin: 1rem 3rem;
+}
+
+.date,
+.completion {
+  margin: 1rem 3rem;
+}
+
+.buttonAdd {
+  margin: 3rem auto;
 }
 
 /*# sourceMappingURL=styles_clodiane.css.map */
