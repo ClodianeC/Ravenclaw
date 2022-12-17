@@ -773,23 +773,23 @@ footer {
     ========================================================================== */
 .retour:link .icon,
 .retour:visited .icon {
-  background-position: 0px 250px;
+  background-position: 0px 300px;
 }
 
 .retour:hover .icon,
 .retour:active .icon {
-  background-position: 50px 250px;
+  background-position: 50px 300px;
 }
 
 /**** Recherche
     ========================================================================== */
 .buttonSearch .icon {
-  background-position: 0px 200px;
+  background-position: 0px 250px;
 }
 
 .buttonSearch:hover .icon,
 .buttonSearch:active .icon {
-  background-position: 50px 200px;
+  background-position: 50px 250px;
 }
 
 /**** Compte
@@ -808,34 +808,34 @@ footer {
     ========================================================================== */
 .icon_header:link#deconnexion .icon,
 .icon_header:visited#deconnexion .icon {
-  background-position: 0px 50px;
+  background-position: 0px 100px;
 }
 
 .icon_header:hover#deconnexion .icon,
 .icon_header:active#deconnexion .icon {
-  background-position: 50px 50px;
+  background-position: 50px 100px;
 }
 
 /**** Delete
     ========================================================================== */
 .buttonDelete .icon {
-  background-position: 0px 100px;
+  background-position: 0px 150px;
 }
 
 .buttonDelete:hover .icon,
 .buttonDelete:active .icon {
-  background-position: 50px 100px;
+  background-position: 50px 150px;
 }
 
 /**** Edit
     ========================================================================== */
 .buttonEdit .icon {
-  background-position: 0px 150px;
+  background-position: 0px 200px;
 }
 
 .buttonEdit:hover .icon,
 .buttonEdit:active .icon {
-  background-position: 50px 150px;
+  background-position: 50px 200px;
 }
 
 /** Formulaire
