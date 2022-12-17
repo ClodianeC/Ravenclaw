@@ -3,6 +3,9 @@
 const inputJour = document.getElementById("jour");
 const inputMois = document.getElementById("mois");
 const inputAnnee = document.getElementById("annee");
+const hamburger = document.getElementById("hamburger");
+const topEntete = document.getElementById("topEntete");
+
 
 const objFormulaire = {
 
@@ -11,6 +14,11 @@ const objFormulaire = {
         inputMois.style.display = "none";
         inputAnnee.style.display = "none";
     }
+}
+
+function hamburgerMenu() {
+    hamburger.classList.toggle("active");
+    topEntete.classList.toggle("active");
 }
 
 function hideShowEcheance(etat) {
@@ -37,7 +45,9 @@ function hideShowEcheance(etat) {
     }
 }
 
-
+hamburger.addEventListener("click", function (){
+   hamburgerMenu();
+});
 document.getElementById("echeanceOnOff").addEventListener("click", function(){
     const valeur = document.getElementById("echeanceOnOff").value
     hideShowEcheance(valeur);

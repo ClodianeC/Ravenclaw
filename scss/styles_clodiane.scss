@@ -49,13 +49,58 @@
     margin: 0 0 3rem 0;
     background-color: $noir;
     border: $blanc solid 3px;
+    display: flex;
+    flex-direction: column;
   }
+  .logoAccueil{
+    order: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .listesEntete{
+    order: 2;
+  }
+  .topEntete{
+    order: 0;
+  }
+    /*** Menu Hamburger
+    ========================================================================== */
+    .topEntete{
+      display: flex;
+      position: fixed;
+      left: -110%;
+      top: 5rem;
+      margin: 1.5rem 0 0 0;
+      z-index: 100;
+      flex-direction: column;
+      align-items: center;
+      background-color: $noir;
+      width: 100%;
+      border: solid $blanc 3px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .topEntete.active{
+      left: 0;
+    }
+    .hamburger{
+      display: block;
+      cursor: pointer;
+    }
+    .hamburger.active{
+      display: block;
+      cursor: pointer;
+    }
+    @media(min-width: 800px){
+      .hamburger{
+        display: none;
+      }
+    }
     /*** Top Entête
       ========================================================================== */
     .topEntete{
       display: flex;
       justify-content: space-between;
-      margin: 2rem;
     }
     .bienvenue{
       color: $blanc;
@@ -78,6 +123,8 @@
       display: inline-block;
       margin-left: 20%;
       margin-bottom: 5rem;
+      z-index: 0;
+      position: relative;
     }
     .lienAccueil:link .titre01,
     .lienAccueil:link .titre02,
@@ -221,8 +268,9 @@
     .retour .icon,
     .buttonSearch .icon,
     .buttonDelete .icon,
-    .buttonEdit .icon{
-      background-image: url(../img/images/sprite-icon.png);
+    .buttonEdit .icon,
+    .hamburger .icon{
+      background-image: url(../img/images/sprite-icons_final.png);
       display: inline-block;
       width: 50px;
       height: 50px;
@@ -264,20 +312,36 @@
           ========================================================================== */
       .retour:link .icon,
       .retour:visited .icon{
-        background-position: 0px 300px;
+        background-position: 0px 350px;
       }
       .retour:hover .icon,
       .retour:active .icon{
-        background-position: 50px 300px;
+        background-position: 50px 350px;
+      }
+      /**** Hamburger
+      ========================================================================== */
+      .hamburger .icon{
+        background-position: 0px 100px;
+      }
+      .hamburger:hover .icon,
+      .hamburger:active .icon{
+        background-position: 50px 100px;
+      }
+      .hamburger.active .icon{
+        background-position: 0px 50px;
+      }
+      .hamburger.active:hover .icon,
+      .hamburger.active:active .icon{
+        background-position: 50px 50px;
       }
       /**** Recherche
           ========================================================================== */
       .buttonSearch .icon{
-        background-position: 0px 250px;
+        background-position: 0px 300px;
       }
       .buttonSearch:hover .icon,
       .buttonSearch:active .icon{
-        background-position: 50px 250px;
+        background-position: 50px 300px;
       }
       /**** Compte
           ========================================================================== */
@@ -293,29 +357,29 @@
           ========================================================================== */
       .icon_header:link#deconnexion .icon,
       .icon_header:visited#deconnexion .icon{
-        background-position: 0px 100px;
+        background-position: 0px 150px;
       }
       .icon_header:hover#deconnexion .icon,
       .icon_header:active#deconnexion .icon{
-        background-position: 50px 100px;
+        background-position: 50px 150px;
       }
       /**** Delete
           ========================================================================== */
       .buttonDelete .icon{
-        background-position: 0px 150px;
+        background-position: 0px 200px;
       }
       .buttonDelete:hover .icon,
       .buttonDelete:active .icon{
-        background-position: 50px 150px;
+        background-position: 50px 200px;
       }
       /**** Edit
           ========================================================================== */
       .buttonEdit .icon{
-        background-position: 0px 200px;
+        background-position: 0px 250px;
       }
       .buttonEdit:hover .icon,
       .buttonEdit:active .icon{
-        background-position: 50px 200px;
+        background-position: 50px 250px;
       }
 
   /** Formulaire

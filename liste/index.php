@@ -166,4 +166,5 @@ $pdosResultatItems->closeCursor();
 <footer>
     <?php include($niveau."inc/fragments/footer.php"); ?>
 </footer>
+<script src="<?php echo $niveau ?>js/script_clodiane.js"></script>
 </html>
