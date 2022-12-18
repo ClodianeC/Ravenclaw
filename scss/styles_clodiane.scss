@@ -94,14 +94,6 @@
       display: flex;
       cursor: pointer;
     }
-    @media(min-width: 800px){
-      .hamburger{
-        display: none;
-      }
-      .topEntete{
-        left: 0;
-      }
-    }
     /*** Top Entête
       ========================================================================== */
     .topEntete{
@@ -120,6 +112,20 @@
     }
     .boutonsEntete{
       display: flex;
+    }
+    @media(min-width: 800px){
+      .hamburger{
+        display: none;
+      }
+      .topEntete{
+        position: static;
+        left: 0;
+        top: 0;
+        margin: 1rem 0;
+        flex-direction: row;
+        padding: 1rem;
+        border: none;
+      }
     }
     /*** Logo/Lien accueil
     ========================================================================== */
@@ -202,6 +208,7 @@
       .slogan{
         font-size: 2.8rem;
         color: $blanc;
+        margin-top: 2.8rem;
         padding-left: 10rem;
       }
     }
@@ -306,7 +313,7 @@
       text-decoration: none;
       background-color: $noir;
       border: $blanc solid 3px;
-      width: 315px;
+      width: 260px;
       height: 70px;
       font-size: 3rem;
       display: block;
@@ -319,6 +326,12 @@
     .lienBouton:active{
       color: $noir;
       background-color: $blanc;
+    }
+    @media(min-width: 800px) {
+      .bouton,
+      .lienBouton{
+        width: 315px;
+      }
     }
     /*** Boutons icônes
         ========================================================================== */
@@ -492,7 +505,13 @@
     }
     .bouton.echeanceOff,
     .bouton.echeanceOn{
-      font-size: 2.2rem;
+      font-size: 1.8rem;
+    }
+    @media(min-width: 800px) {
+      .bouton.echeanceOff,
+      .bouton.echeanceOn{
+        font-size: 2.2rem;
+      }
     }
     /*** Style champs formulaire
         ========================================================================== */
@@ -601,8 +620,8 @@
   .itemListe{
     display: inline-flex;
     flex-direction: column;
-    width: 400px;
-    margin: 0 3rem 4rem 3rem;
+    width: 300px;
+    margin: 0 1rem 4rem 1rem;
     background-color: $noir;
     border: $blanc solid 3px;
     color: $blanc;
@@ -610,6 +629,7 @@
   .h2Item{
     padding: 0.5rem 2rem;
     margin-bottom: 1.2rem;
+    font-size: 3rem;
   }
   .boutonsItems{
     display: flex;
@@ -622,4 +642,13 @@
   }
   .buttonAdd{
     margin: 3rem auto;
+  }
+  @media(min-width: 800px){
+    .itemListe{
+      width: 400px;
+      margin: 0 3rem 4rem 3rem;
+    }
+    .h2Item{
+      font-size: 3.5rem;
+    }
   }
