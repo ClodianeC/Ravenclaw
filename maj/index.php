@@ -228,4 +228,5 @@ if ($strCodeOperation == "modifier") {
     </form>
 
 </body>
+<?php include ($niveau . "inc/fragments/footer.php"); ?>
 </html>
