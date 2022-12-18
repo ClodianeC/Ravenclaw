@@ -101,9 +101,9 @@ $pdosResultatUrgent ->closeCursor();
 </ul>
 <h2 class="h2 listes">Vos listes :</h2>
 <?php
-    if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
-        <p class="h2">Nous avons supprimé la liste !</p>
-    <?php } ?>
+if (isset($_GET["btn_supprimer_oui"]) == "Oui") { ?>
+    <p class="h2">Nous avons supprimé la liste !</p>
+<?php } ?>
 <form action="maj/index.php" method="get" class="form">
     <input type="text" name="id_liste" id="id_liste" value="id_liste" hidden>
     <input type="submit" value="Ajouter une liste" name="btn_nouveau" class="bouton btn_ajouter">
@@ -134,6 +134,5 @@ $pdosResultatUrgent ->closeCursor();
 
 
 </body>
-<script src="js/script_benjamin.js"></script>
-
+<?php include ($niveau . "inc/fragments/footer.php"); ?>
 </html>
