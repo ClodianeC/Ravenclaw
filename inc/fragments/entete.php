@@ -48,7 +48,7 @@ $pdosResultatListes->closeCursor();
     </div>
     <div class="listesEntete">
         <p class="titreEnteteListe">Vos listes</p>
-        <a class="lienAjouterListe lienBouton" href="<?php echo $niveau ?>liste/maj/index.php?ajouter=ajouter">Ajouter une liste</a>
+        <a class="lienAjouterListe lienBouton" href="<?php echo $niveau ?>maj/index.php?ajouter=ajouter">Ajouter une liste</a>
         <ul class="listeLiensEntete">
             <?php
             for($intCptAffichageListes=0; $intCptAffichageListes<count($arrListes); $intCptAffichageListes++){
